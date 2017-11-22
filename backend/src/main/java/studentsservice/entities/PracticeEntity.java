@@ -3,7 +3,6 @@ package studentsservice.entities;
 import javax.persistence.*;
 import java.sql.Date;
 
-
 @Entity
 @Table(name = "practices", schema = "students_service", catalog = "")
 public class PracticeEntity {

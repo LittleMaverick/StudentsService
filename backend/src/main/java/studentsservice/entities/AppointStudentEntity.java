@@ -2,9 +2,6 @@ package studentsservice.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by littleF on 20.11.2017.
- */
 @Entity
 @Table(name = "appoint_students", schema = "students_service", catalog = "")
 public class AppointStudentEntity {
