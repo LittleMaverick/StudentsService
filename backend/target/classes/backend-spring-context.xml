@@ -46,7 +46,8 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="studentsservice"/>
+    <context:component-scan base-package="studentsservice.service"/>
+    <context:component-scan base-package="studentsservice.service.Impl"/>
 
 
     <!-- Need for Repository abstraction -->

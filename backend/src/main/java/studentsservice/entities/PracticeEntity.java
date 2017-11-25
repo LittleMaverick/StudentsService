@@ -2,6 +2,7 @@ package studentsservice.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "practices", schema = "students_service", catalog = "")
@@ -14,6 +15,10 @@ public class PracticeEntity {
     private SpecialityEntity specialitiesBySpecialityId;
     private FacultyEntity facultiesByFacultyId;
     private HeadOfPracticeEntity headofpracticesByHeadOfPracticeId;
+    private int specialityId;
+    private int facultyId;
+    private int headOfPracticeId;
+    private Collection<AppointStudentEntity> appointStudentsById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -65,7 +70,6 @@ public class PracticeEntity {
         this.status = status;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,7 +113,7 @@ public class PracticeEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public FacultyEntity getFacultiesByFacultyId() {
         return facultiesByFacultyId;
     }
@@ -126,5 +130,44 @@ public class PracticeEntity {
 
     public void setHeadofpracticesByHeadOfPracticeId(HeadOfPracticeEntity headofpracticesByHeadOfPracticeId) {
         this.headofpracticesByHeadOfPracticeId = headofpracticesByHeadOfPracticeId;
+    }
+
+    @Basic
+    @Column(name = "speciality_id", nullable = false, insertable = false, updatable = false)
+    public int getSpecialityId() {
+        return specialityId;
+    }
+
+    public void setSpecialityId(int specialityId) {
+        this.specialityId = specialityId;
+    }
+
+    @Basic
+    @Column(name = "faculty_id", nullable = false)
+    public int getFacultyId() {
+        return facultyId;
+    }
+
+    public void setFacultyId(int facultyId) {
+        this.facultyId = facultyId;
+    }
+
+    @Basic
+    @Column(name = "headOfPractice_id", nullable = false, insertable = false, updatable = false)
+    public int getHeadOfPracticeId() {
+        return headOfPracticeId;
+    }
+
+    public void setHeadOfPracticeId(int headOfPracticeId) {
+        this.headOfPracticeId = headOfPracticeId;
+    }
+
+    @OneToMany(mappedBy = "practicesByPracticeId")
+    public Collection<AppointStudentEntity> getAppointStudentsById() {
+        return appointStudentsById;
+    }
+
+    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
+        this.appointStudentsById = appointStudentsById;
     }
 }

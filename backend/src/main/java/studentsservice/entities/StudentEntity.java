@@ -1,6 +1,7 @@
 package studentsservice.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "students", schema = "students_service", catalog = "")
@@ -12,6 +13,9 @@ public class StudentEntity {
     private String email;
     private String status;
     private SpecialityEntity specialitiesBySpecialityId;
+    private int specialityId;
+    private Collection<AppointStudentEntity> appointStudentsById;
+    private Collection<UserEntity> usersById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -122,5 +126,33 @@ public class StudentEntity {
 
     public void setSpecialitiesBySpecialityId(SpecialityEntity specialitiesBySpecialityId) {
         this.specialitiesBySpecialityId = specialitiesBySpecialityId;
+    }
+
+    @Basic
+    @Column(name = "speciality_id", nullable = false, insertable = false, updatable = false)
+    public int getSpecialityId() {
+        return specialityId;
+    }
+
+    public void setSpecialityId(int specialityId) {
+        this.specialityId = specialityId;
+    }
+
+    @OneToMany(mappedBy = "studentsByStudentId")
+    public Collection<AppointStudentEntity> getAppointStudentsById() {
+        return appointStudentsById;
+    }
+
+    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
+        this.appointStudentsById = appointStudentsById;
+    }
+
+    @OneToMany(mappedBy = "studentsByStudentId")
+    public Collection<UserEntity> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<UserEntity> usersById) {
+        this.usersById = usersById;
     }
 }

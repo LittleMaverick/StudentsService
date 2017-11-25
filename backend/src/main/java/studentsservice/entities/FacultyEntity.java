@@ -1,12 +1,15 @@
 package studentsservice.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "faculties", schema = "students_service", catalog = "")
 public class FacultyEntity {
     private int id;
     private String name;
+    private Collection<PracticeEntity> practicesById;
+    private Collection<SpecialityEntity> specialitiesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -54,5 +57,23 @@ public class FacultyEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @OneToMany(mappedBy = "facultiesByFacultyId")
+    public Collection<PracticeEntity> getPracticesById() {
+        return practicesById;
+    }
+
+    public void setPracticesById(Collection<PracticeEntity> practicesById) {
+        this.practicesById = practicesById;
+    }
+
+    @OneToMany(mappedBy = "facultiesByFacultyId")
+    public Collection<SpecialityEntity> getSpecialitiesById() {
+        return specialitiesById;
+    }
+
+    public void setSpecialitiesById(Collection<SpecialityEntity> specialitiesById) {
+        this.specialitiesById = specialitiesById;
     }
 }

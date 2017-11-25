@@ -11,7 +11,7 @@ public interface PracticeService {
     void delete(int id);
 
     List<PracticeEntity> findAll();
-    List<PracticeEntity> findByHeadofpracticeId(int headOfPractice_id);
+    List<PracticeEntity> findByHeadOfPracticeId(int headOfPractice_id);
     List<PracticeEntity> findByStatus(String status);
     PracticeEntity findById(int id);
     PracticeEntity findByCompany(String company);

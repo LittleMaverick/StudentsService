@@ -10,9 +10,7 @@ import studentsservice.service.UserService;
 
 import java.util.List;
 
-/**
- * Created by littleF on 21.11.2017.
- */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,13 +21,11 @@ public class Main {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("backend-spring-context.xml");
 
         UserService service = ctx.getBean("jpaUserService", UserService.class);
-       // UserRepository service = ctx.getBean(UserRepository.class);
-       List<UserEntity> entities = service.findAll();
+        List<UserEntity> entities = service.findAll();
         printAll(entities);
 
-
+        System.out.println("------------------------------------------");
         System.out.println(service.findById(2));
-
     }
 
     private static void printAll(List<UserEntity> contacts) {

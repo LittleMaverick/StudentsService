@@ -12,7 +12,7 @@ public interface AppointStudentService {
 
     List<AppointStudentEntity> findAll();
     AppointStudentEntity findById(int id);
-    List<AppointStudentEntity> findByStudentId(int student_id);
-    List<AppointStudentEntity> findByPracticeId(int practice_id);
+    List<AppointStudentEntity> findByStudentId(int studentId);
+    List<AppointStudentEntity> findByPracticeId(int practiceId);
 
 }

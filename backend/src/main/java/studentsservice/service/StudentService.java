@@ -10,8 +10,8 @@ public interface StudentService  {
     void delete(int id);
 
     List<StudentEntity> findAll();
-    List<StudentEntity> findByFirstName(String firstname);
-    List<StudentEntity> findByLastName(String lastname);
+    List<StudentEntity> findByfirstname(String firstname);
+    List<StudentEntity> findBylastname(String lastname);
     List<StudentEntity> findByGroupNumber(int groupNumber);
     List<StudentEntity> findByStatus(String status);
     StudentEntity findByEmail(String email);

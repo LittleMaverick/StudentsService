@@ -6,8 +6,11 @@ import javax.persistence.*;
 @Table(name = "appoint_students", schema = "students_service", catalog = "")
 public class AppointStudentEntity {
     private int id;
+
     private StudentEntity studentsByStudentId;
     private PracticeEntity practicesByPracticeId;
+    private int studentId;
+    private int practiceId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -54,5 +57,25 @@ public class AppointStudentEntity {
 
     public void setPracticesByPracticeId(PracticeEntity practicesByPracticeId) {
         this.practicesByPracticeId = practicesByPracticeId;
+    }
+
+    @Basic
+    @Column(name = "student_id", nullable = false, insertable = false, updatable = false)
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    @Basic
+    @Column(name = "practice_id", nullable = false, insertable = false, updatable = false)
+    public int getPracticeId() {
+        return practiceId;
+    }
+
+    public void setPracticeId(int practiceId) {
+        this.practiceId = practiceId;
     }
 }

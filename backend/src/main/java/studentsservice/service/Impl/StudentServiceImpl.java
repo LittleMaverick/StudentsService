@@ -10,7 +10,7 @@ import studentsservice.service.StudentService;
 
 import java.util.List;
 
-@Service("jpaStudentService")
+@Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
 
@@ -31,13 +31,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
 
-    public List<StudentEntity> findByFirstName(String firstname) {
-        return studentRepository.findByFirstName(firstname);
+    public List<StudentEntity> findByfirstname(String firstname) {
+        return studentRepository.findByfirstname(firstname);
     }
 
 
-    public List<StudentEntity> findByLastName(String lastname) {
-        return studentRepository.findByLastName(lastname);
+    public List<StudentEntity> findBylastname(String lastname) {
+        return studentRepository.findBylastname(lastname);
     }
 
 

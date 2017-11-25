@@ -11,7 +11,7 @@ import studentsservice.service.AppointStudentService;
 
 import java.util.List;
 
-@Service("jpaAppointStudentService")
+@Service
 @Transactional
 public class AppointStudentServiceImpl implements AppointStudentService{
 
@@ -39,12 +39,12 @@ public class AppointStudentServiceImpl implements AppointStudentService{
     }
 
     @Override
-    public List<AppointStudentEntity> findByStudentId(int student_id) {
-        return appointStudentRepository.findByStudentId(student_id);
+    public List<AppointStudentEntity> findByStudentId(int studentId) {
+        return appointStudentRepository.findByStudentId(studentId);
     }
 
     @Override
-    public List<AppointStudentEntity> findByPracticeId(int practice_id) {
-        return appointStudentRepository.findByPracticeId(practice_id);
+    public List<AppointStudentEntity> findByPracticeId(int practiceId) {
+        return appointStudentRepository.findByPracticeId(practiceId);
     }
 }

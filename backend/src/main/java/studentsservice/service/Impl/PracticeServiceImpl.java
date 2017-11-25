@@ -11,7 +11,7 @@ import studentsservice.service.PracticeService;
 
 import java.util.List;
 
-@Service("jpaPracticeService")
+@Service
 @Transactional
 public class PracticeServiceImpl implements PracticeService{
 
@@ -34,8 +34,8 @@ public class PracticeServiceImpl implements PracticeService{
     }
 
     @Override
-    public List<PracticeEntity> findByHeadofpracticeId(int headOfPractice_id) {
-        return practiceRepository.findByHeadofpracticeId(headOfPractice_id);
+    public List<PracticeEntity> findByHeadOfPracticeId(int headOfPractice_id) {
+        return practiceRepository.findByHeadOfPracticeId(headOfPractice_id);
     }
 
     @Override

@@ -11,7 +11,7 @@ import studentsservice.service.FacultyService;
 
 import java.util.List;
 
-@Service("jpaFacultyService")
+@Service
 @Transactional
 public class FacultyServiceImpl implements FacultyService{
 
