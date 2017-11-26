@@ -12,7 +12,10 @@
 
     <mvc:annotation-driven />
 
-    <context:component-scan base-package="java" />
+    <context:component-scan base-package="studentsService" />
+
+    <import resource="classpath*:backend-spring-context.xml"/>
+    <import resource="web-converters-context.xml"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/jsp/"/>
