@@ -12,7 +12,7 @@ import studentsservice.service.SpecialityService;
 
 import java.util.List;
 
-@Service
+@Service("jpaSpecialityService")
 @Transactional
 public class SpecialityServiceImpl implements SpecialityService{
 

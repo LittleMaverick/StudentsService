@@ -10,7 +10,7 @@ import studentsservice.service.HeadOfPracticeService;
 
 import java.util.List;
 
-@Service
+@Service("jpaHeadOfPracticeService")
 @Transactional
 public class HeadOfPracticeServiceImpl implements HeadOfPracticeService {
 

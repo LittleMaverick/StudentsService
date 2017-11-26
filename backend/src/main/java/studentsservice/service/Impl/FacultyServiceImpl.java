@@ -1,6 +1,5 @@
 package studentsservice.service.Impl;
 
-
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import studentsservice.service.FacultyService;
 
 import java.util.List;
 
-@Service
+@Service("jpaFacultyService")
 @Transactional
 public class FacultyServiceImpl implements FacultyService{
 

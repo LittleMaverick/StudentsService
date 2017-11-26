@@ -11,7 +11,7 @@ import studentsservice.service.PracticeService;
 
 import java.util.List;
 
-@Service
+@Service("jpaPracticeService")
 @Transactional
 public class PracticeServiceImpl implements PracticeService{
 

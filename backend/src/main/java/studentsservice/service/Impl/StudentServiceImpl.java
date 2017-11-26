@@ -10,7 +10,7 @@ import studentsservice.service.StudentService;
 
 import java.util.List;
 
-@Service
+@Service("jpaStudentService")
 @Transactional
 public class StudentServiceImpl implements StudentService {
 
