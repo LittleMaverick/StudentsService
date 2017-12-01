@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="conversionService" class="studentsService.converters.CustomConvertersRegister">
+        <property name="converters">
+            <set>
+                <bean class="studentsService.converters.UserEntityToUserViewModelConverter"/>
+                <bean class="studentsService.converters.StudentEntityToStudentViewModel"/>
+                <bean class="studentsService.converters.SpecialityEntityToSpecialityViewModel"/>
+                <bean class="studentsService.converters.PracticeEntityToPracticeViewModel"/>
+                <bean class="studentsService.converters.HeadOfPracticeEntityToHeadOfPracticeViewModel"/>
+                <bean class="studentsService.converters.FacultyEntityToFacultyViewModel"/>
+                <bean class="studentsService.converters.AppointStudentEntityToAppointStudentViewModel"/>
+                <bean class="studentsService.converters.StudentEntityToStudentProfileViewModel"/>
+                <bean class="studentsService.converters.StudentEntityToStudentDataViewModel"/>
+            </set>
+        </property>
+    </bean>
+</beans>

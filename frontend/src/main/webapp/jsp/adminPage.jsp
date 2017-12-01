@@ -11,6 +11,8 @@
 <head>
     <title>Administration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
+    <link href="../../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
+    <script src="../../resources/js/libs/bootstrap-table.js"></script>
 </head>
 <body>
 
@@ -26,90 +28,49 @@
 
             <a href="practices" class="btn btn-primary">Show all requests</a>
 
-
-
             <a href="#" class="btn btn-primary"><span></span> Create faculty</a>
             <a href="#" class="btn btn-primary"><span></span> Create speciality</a>
             <a href="#" class="btn btn-primary"><span></span> Register student</a>
             <a href="#" class="btn btn-primary"><span></span> Register head of practice</a>
 
-
             <button type="submit" class="btn btn-primary">Assign student(s)</button>
             <button type="submit" class="btn btn-primary">Release student(s)</button>
-
-
-
-
-
             <button type="submit" class="btn btn-danger">Delete student(s)</button>
-
 
     </div>
 </div>
-
 
 
 <br/>
 <div class="container">
 
     <table class="table table-hover" data-toggle="table"
-           data-click-to-select="true">
+           data-click-to-select="true"
+           data-classes="table table-hover"
+           data-url="/students">
         <thead>
         <tr>
-            <th>#</th>
-            <th>L. Name</th>
-            <th>F. Name</th>
-            <th>Faculty</th>
-            <th>Speciality</th>
-            <th>Group</th>
-            <th>Status</th>
-            <th>Company</th>
-            <th>Practice period</th>
-            <th></th>
-
+            <th data-field="#" data-checkbox="true" ></th>
+            <th data-field="lastName" data-sortable="true">Last Name</th>
+            <th data-field="firstName"  >Name</th>
+            <th data-field="faculty" >Faculty</th>
+            <th data-field="speciality" >Speciality</th>
+            <th data-field="status" >Status</th>
+            <th data-field="company" >Company</th>
+            <th data-field="practicePeriod" >Period</th>
+            <%--<th data-field="groupNumber"  >Group</th>--%>
+            <%--<th data-field="email"  >Email</th>--%>
+            <th data-field="id" data-formatter="LinkFormatter">Show</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th></th>
-            <th>Otto</th>
-            <th>Mark</th>
-            <th>test</th>
-            <th>test</th>
-            <th>test</th>
-            <th>On practice</th>
-            <th>Integral</th>
-            <th>1.09.2017 - 1.10.2017</th>
-            <th><button type="submit" class="btn btn-primary">Show</button></th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>Otto</th>
-            <th>Mark</th>
-            <th>test</th>
-            <th>test</th>
-            <th>test</th>
-            <th>On practice</th>
-            <th>Integral</th>
-            <th>1.09.2017 - 1.10.2017</th>
-            <th><button type="submit" class="btn btn-primary">Show</button></th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>Otto</th>
-            <th>Mark</th>
-            <th>test</th>
-            <th>test</th>
-            <th>test</th>
-            <th>On practice</th>
-            <th>Integral</th>
-            <th>1.09.2017 - 1.10.2017</th>
-            <th><button type="submit" class="btn btn-primary">Show</button></th>
-        </tr>
-        </tbody>
     </table>
 </div>
 
+<script>
+    function LinkFormatter(value, row, index) {
+        return "<a href=\"+value+\" class=\"btn btn-primary\">Show</a>";
+    }
+</script>
 
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>

@@ -77,46 +77,6 @@ public class StudentEntity {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        StudentEntity that = (StudentEntity) o;
-
-        if (id != that.id) return false;
-        if (groupNumber != that.groupNumber) return false;
-        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (status != null ? !status.equals(that.status) : that.status != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + groupNumber;
-        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
-        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "StudentEntity{" +
-                "id=" + id +
-                ", groupNumber=" + groupNumber +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", status='" + status + '\'' +
-                ", specialitiesBySpecialityId=" + specialitiesBySpecialityId +
-                '}';
-    }
 
     @ManyToOne
     @JoinColumn(name = "speciality_id", referencedColumnName = "id", nullable = false)
@@ -154,5 +114,57 @@ public class StudentEntity {
 
     public void setUsersById(Collection<UserEntity> usersById) {
         this.usersById = usersById;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StudentEntity that = (StudentEntity) o;
+
+        if (id != that.id) return false;
+        if (groupNumber != that.groupNumber) return false;
+        if (specialityId != that.specialityId) return false;
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (specialitiesBySpecialityId != null ? !specialitiesBySpecialityId.equals(that.specialitiesBySpecialityId) : that.specialitiesBySpecialityId != null)
+            return false;
+        if (appointStudentsById != null ? !appointStudentsById.equals(that.appointStudentsById) : that.appointStudentsById != null)
+            return false;
+        return usersById != null ? usersById.equals(that.usersById) : that.usersById == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + groupNumber;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (specialitiesBySpecialityId != null ? specialitiesBySpecialityId.hashCode() : 0);
+        result = 31 * result + specialityId;
+        result = 31 * result + (appointStudentsById != null ? appointStudentsById.hashCode() : 0);
+        result = 31 * result + (usersById != null ? usersById.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "id=" + id +
+                ", groupNumber=" + groupNumber +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", status='" + status + '\'' +
+                ", specialitiesBySpecialityId=" + specialitiesBySpecialityId +
+                ", specialityId=" + specialityId +
+                ", appointStudentsById=" + appointStudentsById +
+                ", usersById=" + usersById +
+                '}';
     }
 }
