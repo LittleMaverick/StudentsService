@@ -98,7 +98,7 @@ public class StudentEntity {
         this.specialityId = specialityId;
     }
 
-    @OneToMany(mappedBy = "studentsByStudentId")
+    @OneToMany(mappedBy = "studentsByStudentId", fetch = FetchType.EAGER)
     public Collection<AppointStudentEntity> getAppointStudentsById() {
         return appointStudentsById;
     }
