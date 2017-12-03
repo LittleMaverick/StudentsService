@@ -7,13 +7,11 @@
 
     <parent>
         <artifactId>StudentsService</artifactId>
-        <groupId>StudentsService</groupId>
+        <groupId>students_service</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-
     <artifactId>backend</artifactId>
-
 
     <dependencies>
         <dependency>
