@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import studentsservice.entities.UserEntity;
 import studentsservice.service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CustomUserDetailService implements UserDetailsService {
 
@@ -30,12 +30,18 @@ public class CustomUserDetailService implements UserDetailsService {
         String userName = userEntity.getUsername();
         String password = userEntity.getPassword();
 
-        GrantedAuthority grantedAuthority = (GrantedAuthority) () -> userEntity.getRole();
+//        GrantedAuthority grantedAuthority = (GrantedAuthority) () -> userEntity.getRole();
+        GrantedAuthority grantedAuthority = new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                return userEntity.getRole();
+            }
+        };
 
-        List<GrantedAuthority> authorities = new ArrayList<>();
+        Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(grantedAuthority);
 
-        UserDetails details = new User(userName,password,true,true,true,true,authorities);
+        UserDetails details = new User(userName, password,true,true,true,true, authorities);
         return details;
     }
 }

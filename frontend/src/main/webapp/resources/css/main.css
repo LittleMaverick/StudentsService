@@ -35,3 +35,14 @@ footer .copyright{
     font-size: 16px;
     color: #fff;
 }
+
+.btn-primary {
+
+    margin-right: 7px;
+    margin-bottom: 0px;
+}
+
+.btn-danger {
+
+  margin-right: 7px;
+}

@@ -7,6 +7,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+            /WEB-INF/web-spring-context.xml
             /WEB-INF/web-security-context.xml
         </param-value>
     </context-param>
@@ -17,15 +18,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>
-                /WEB-INF/web-spring-context.xml
-            </param-value>
-        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -40,7 +36,7 @@
     </filter>
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/**</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <welcome-file-list>
