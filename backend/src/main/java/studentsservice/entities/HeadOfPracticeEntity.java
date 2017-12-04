@@ -8,8 +8,8 @@ import java.util.Collection;
 public class HeadOfPracticeEntity {
     private int id;
     private String name;
-    private UserEntity usersByUserId;
     private int userId;
+    private UserEntity usersByUserId;
     private Collection<PracticeEntity> practicesById;
 
     @Id
@@ -32,6 +32,16 @@ public class HeadOfPracticeEntity {
         this.name = name;
     }
 
+    @Basic
+    @Column(name = "user_id", nullable = false, insertable = false, updatable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,15 +50,20 @@ public class HeadOfPracticeEntity {
         HeadOfPracticeEntity that = (HeadOfPracticeEntity) o;
 
         if (id != that.id) return false;
+        if (userId != that.userId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
+        if (usersByUserId != null ? !usersByUserId.equals(that.usersByUserId) : that.usersByUserId != null)
+            return false;
+        return practicesById != null ? practicesById.equals(that.practicesById) : that.practicesById == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + userId;
+        result = 31 * result + (usersByUserId != null ? usersByUserId.hashCode() : 0);
+        result = 31 * result + (practicesById != null ? practicesById.hashCode() : 0);
         return result;
     }
 
@@ -60,16 +75,6 @@ public class HeadOfPracticeEntity {
 
     public void setUsersByUserId(UserEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
-    }
-
-    @Basic
-    @Column(name = "user_id", nullable = false, insertable = false, updatable = false)
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     @OneToMany(mappedBy = "headofpracticesByHeadOfPracticeId")

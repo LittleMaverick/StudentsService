@@ -12,9 +12,9 @@ public class StudentEntity {
     private String lastname;
     private String email;
     private String status;
-    private SpecialityEntity specialitiesBySpecialityId;
     private int specialityId;
     private Collection<AppointStudentEntity> appointStudentsById;
+    private SpecialityEntity specialitiesBySpecialityId;
     private Collection<UserEntity> usersById;
 
     @Id
@@ -77,43 +77,14 @@ public class StudentEntity {
         this.status = status;
     }
 
-
-    @ManyToOne
-    @JoinColumn(name = "speciality_id", referencedColumnName = "id", nullable = false)
-    public SpecialityEntity getSpecialitiesBySpecialityId() {
-        return specialitiesBySpecialityId;
-    }
-
-    public void setSpecialitiesBySpecialityId(SpecialityEntity specialitiesBySpecialityId) {
-        this.specialitiesBySpecialityId = specialitiesBySpecialityId;
-    }
-
     @Basic
-    @Column(name = "speciality_id", nullable = false, insertable = false, updatable = false)
+    @Column(name = "speciality_id", nullable = false)
     public int getSpecialityId() {
         return specialityId;
     }
 
     public void setSpecialityId(int specialityId) {
         this.specialityId = specialityId;
-    }
-
-    @OneToMany(mappedBy = "studentsByStudentId", fetch = FetchType.EAGER)
-    public Collection<AppointStudentEntity> getAppointStudentsById() {
-        return appointStudentsById;
-    }
-
-    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
-        this.appointStudentsById = appointStudentsById;
-    }
-
-    @OneToMany(mappedBy = "studentsByStudentId")
-    public Collection<UserEntity> getUsersById() {
-        return usersById;
-    }
-
-    public void setUsersById(Collection<UserEntity> usersById) {
-        this.usersById = usersById;
     }
 
     @Override
@@ -130,9 +101,9 @@ public class StudentEntity {
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (specialitiesBySpecialityId != null ? !specialitiesBySpecialityId.equals(that.specialitiesBySpecialityId) : that.specialitiesBySpecialityId != null)
-            return false;
         if (appointStudentsById != null ? !appointStudentsById.equals(that.appointStudentsById) : that.appointStudentsById != null)
+            return false;
+        if (specialitiesBySpecialityId != null ? !specialitiesBySpecialityId.equals(that.specialitiesBySpecialityId) : that.specialitiesBySpecialityId != null)
             return false;
         return usersById != null ? usersById.equals(that.usersById) : that.usersById == null;
     }
@@ -145,11 +116,39 @@ public class StudentEntity {
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (specialitiesBySpecialityId != null ? specialitiesBySpecialityId.hashCode() : 0);
         result = 31 * result + specialityId;
         result = 31 * result + (appointStudentsById != null ? appointStudentsById.hashCode() : 0);
+        result = 31 * result + (specialitiesBySpecialityId != null ? specialitiesBySpecialityId.hashCode() : 0);
         result = 31 * result + (usersById != null ? usersById.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "studentsByStudentId", fetch = FetchType.EAGER)
+    public Collection<AppointStudentEntity> getAppointStudentsById() {
+        return appointStudentsById;
+    }
+
+    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
+        this.appointStudentsById = appointStudentsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "speciality_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public SpecialityEntity getSpecialitiesBySpecialityId() {
+        return specialitiesBySpecialityId;
+    }
+
+    public void setSpecialitiesBySpecialityId(SpecialityEntity specialitiesBySpecialityId) {
+        this.specialitiesBySpecialityId = specialitiesBySpecialityId;
+    }
+
+    @OneToMany(mappedBy = "studentsByStudentId")
+    public Collection<UserEntity> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<UserEntity> usersById) {
+        this.usersById = usersById;
     }
 
     @Override
@@ -161,9 +160,9 @@ public class StudentEntity {
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", status='" + status + '\'' +
-                ", specialitiesBySpecialityId=" + specialitiesBySpecialityId +
                 ", specialityId=" + specialityId +
                 ", appointStudentsById=" + appointStudentsById +
+                ", specialitiesBySpecialityId=" + specialitiesBySpecialityId +
                 ", usersById=" + usersById +
                 '}';
     }

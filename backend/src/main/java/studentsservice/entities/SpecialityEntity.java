@@ -8,9 +8,9 @@ import java.util.Collection;
 public class SpecialityEntity {
     private int id;
     private String name;
-    private FacultyEntity facultiesByFacultyId;
     private int facultyId;
     private Collection<PracticeEntity> practicesById;
+    private FacultyEntity facultiesByFacultyId;
     private Collection<StudentEntity> studentsById;
 
     @Id
@@ -33,45 +33,6 @@ public class SpecialityEntity {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        SpecialityEntity that = (SpecialityEntity) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "SpecialityEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", facultiesByFacultyId=" + facultiesByFacultyId +
-                '}';
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
-    public FacultyEntity getFacultiesByFacultyId() {
-        return facultiesByFacultyId;
-    }
-
-    public void setFacultiesByFacultyId(FacultyEntity facultiesByFacultyId) {
-        this.facultiesByFacultyId = facultiesByFacultyId;
-    }
-
     @Basic
     @Column(name = "faculty_id", nullable = false, insertable = false, updatable = false)
     public int getFacultyId() {
@@ -82,6 +43,28 @@ public class SpecialityEntity {
         this.facultyId = facultyId;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SpecialityEntity that = (SpecialityEntity) o;
+
+        if (id != that.id) return false;
+        if (facultyId != that.facultyId) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + facultyId;
+        return result;
+    }
+
     @OneToMany(mappedBy = "specialitiesBySpecialityId")
     public Collection<PracticeEntity> getPracticesById() {
         return practicesById;
@@ -89,6 +72,16 @@ public class SpecialityEntity {
 
     public void setPracticesById(Collection<PracticeEntity> practicesById) {
         this.practicesById = practicesById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
+    public FacultyEntity getFacultiesByFacultyId() {
+        return facultiesByFacultyId;
+    }
+
+    public void setFacultiesByFacultyId(FacultyEntity facultiesByFacultyId) {
+        this.facultiesByFacultyId = facultiesByFacultyId;
     }
 
     @OneToMany(mappedBy = "specialitiesBySpecialityId")

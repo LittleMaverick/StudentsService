@@ -10,9 +10,9 @@ public class UserEntity {
     private String role;
     private String username;
     private String password;
-    private StudentEntity studentsByStudentId;
     private Integer studentId;
     private Collection<HeadOfPracticeEntity> headofpracticesById;
+    private StudentEntity studentsByStudentId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -54,6 +54,16 @@ public class UserEntity {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "student_id", nullable = true, insertable = false, updatable = false)
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,8 +75,10 @@ public class UserEntity {
         if (role != null ? !role.equals(that.role) : that.role != null) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-
-        return true;
+        if (studentId != null ? !studentId.equals(that.studentId) : that.studentId != null) return false;
+        if (headofpracticesById != null ? !headofpracticesById.equals(that.headofpracticesById) : that.headofpracticesById != null)
+            return false;
+        return studentsByStudentId != null ? studentsByStudentId.equals(that.studentsByStudentId) : that.studentsByStudentId == null;
     }
 
     @Override
@@ -75,18 +87,19 @@ public class UserEntity {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (studentId != null ? studentId.hashCode() : 0);
+        result = 31 * result + (headofpracticesById != null ? headofpracticesById.hashCode() : 0);
+        result = 31 * result + (studentsByStudentId != null ? studentsByStudentId.hashCode() : 0);
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", role='" + role + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", studentsByStudentId=" + studentsByStudentId +
-                '}';
+    @OneToMany(mappedBy = "usersByUserId")
+    public Collection<HeadOfPracticeEntity> getHeadofpracticesById() {
+        return headofpracticesById;
+    }
+
+    public void setHeadofpracticesById(Collection<HeadOfPracticeEntity> headofpracticesById) {
+        this.headofpracticesById = headofpracticesById;
     }
 
     @ManyToOne
@@ -99,22 +112,16 @@ public class UserEntity {
         this.studentsByStudentId = studentsByStudentId;
     }
 
-    @Basic
-    @Column(name = "student_id", nullable = true, insertable = false, updatable = false)
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<HeadOfPracticeEntity> getHeadofpracticesById() {
-        return headofpracticesById;
-    }
-
-    public void setHeadofpracticesById(Collection<HeadOfPracticeEntity> headofpracticesById) {
-        this.headofpracticesById = headofpracticesById;
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", role='" + role + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", studentId=" + studentId +
+                ", headofpracticesById=" + headofpracticesById +
+                ", studentsByStudentId=" + studentsByStudentId +
+                '}';
     }
 }

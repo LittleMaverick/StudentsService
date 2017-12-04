@@ -6,11 +6,10 @@ import javax.persistence.*;
 @Table(name = "appoint_students", schema = "students_service", catalog = "")
 public class AppointStudentEntity {
     private int id;
-
-    private StudentEntity studentsByStudentId;
-    private PracticeEntity practicesByPracticeId;
     private int studentId;
     private int practiceId;
+    private StudentEntity studentsByStudentId;
+    private PracticeEntity practicesByPracticeId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -20,43 +19,6 @@ public class AppointStudentEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AppointStudentEntity that = (AppointStudentEntity) o;
-
-        if (id != that.id) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
-    public StudentEntity getStudentsByStudentId() {
-        return studentsByStudentId;
-    }
-
-    public void setStudentsByStudentId(StudentEntity studentsByStudentId) {
-        this.studentsByStudentId = studentsByStudentId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "practice_id", referencedColumnName = "id", nullable = false)
-    public PracticeEntity getPracticesByPracticeId() {
-        return practicesByPracticeId;
-    }
-
-    public void setPracticesByPracticeId(PracticeEntity practicesByPracticeId) {
-        this.practicesByPracticeId = practicesByPracticeId;
     }
 
     @Basic
@@ -77,5 +39,47 @@ public class AppointStudentEntity {
 
     public void setPracticeId(int practiceId) {
         this.practiceId = practiceId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AppointStudentEntity that = (AppointStudentEntity) o;
+
+        if (id != that.id) return false;
+        if (studentId != that.studentId) return false;
+        if (practiceId != that.practiceId) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + studentId;
+        result = 31 * result + practiceId;
+        return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
+    public StudentEntity getStudentsByStudentId() {
+        return studentsByStudentId;
+    }
+
+    public void setStudentsByStudentId(StudentEntity studentsByStudentId) {
+        this.studentsByStudentId = studentsByStudentId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "practice_id", referencedColumnName = "id", nullable = false)
+    public PracticeEntity getPracticesByPracticeId() {
+        return practicesByPracticeId;
+    }
+
+    public void setPracticesByPracticeId(PracticeEntity practicesByPracticeId) {
+        this.practicesByPracticeId = practicesByPracticeId;
     }
 }

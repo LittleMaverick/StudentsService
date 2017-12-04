@@ -51,14 +51,6 @@ public class FacultyEntity {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "FacultyEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
     @OneToMany(mappedBy = "facultiesByFacultyId")
     public Collection<PracticeEntity> getPracticesById() {
         return practicesById;
