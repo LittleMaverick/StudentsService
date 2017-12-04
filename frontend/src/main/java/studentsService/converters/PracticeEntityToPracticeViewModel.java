@@ -15,9 +15,15 @@ public class PracticeEntityToPracticeViewModel implements Converter<PracticeEnti
         practiceViewModel.setStartDate(String.valueOf(practiceEntity.getStartDate()));
         practiceViewModel.setFinishDate(String.valueOf(practiceEntity.getFinishDate()));
         practiceViewModel.setStatus(practiceEntity.getStatus());
+        practiceViewModel.setFirstModuleMark(String.valueOf(practiceEntity.getFirstModuleMark()));
+        practiceViewModel.setSecondModuleMark(String.valueOf(practiceEntity.getSecondModuleMark()));
+        practiceViewModel.setAverageMark(String.valueOf(practiceEntity.getAverageMark()));
+        practiceViewModel.setTotalQuantity(String.valueOf(practiceEntity.getTotalQuantity()));
+        practiceViewModel.setAvailableQuantity(String.valueOf(practiceEntity.getAvailableQuantity()));
 
         practiceViewModel.setFaculty(practiceEntity.getFacultiesByFacultyId().getName());
         practiceViewModel.setSpeciality(practiceEntity.getSpecialitiesBySpecialityId().getName());
+
 
         return practiceViewModel;
     }

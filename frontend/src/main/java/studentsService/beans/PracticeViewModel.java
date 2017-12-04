@@ -10,6 +10,11 @@ public class PracticeViewModel {
     private String status;
     private String speciality;
     private String faculty;
+    private String firstModuleMark;
+    private String secondModuleMark;
+    private String averageMark;
+    private String totalQuantity;
+    private String availableQuantity;
 
     public String getId() {
         return id;
@@ -73,5 +78,45 @@ public class PracticeViewModel {
 
     public void setFaculty(String faculty) {
         this.faculty = faculty;
+    }
+
+    public String getFirstModuleMark() {
+        return firstModuleMark;
+    }
+
+    public void setFirstModuleMark(String firstModuleMark) {
+        this.firstModuleMark = firstModuleMark;
+    }
+
+    public String getSecondModuleMark() {
+        return secondModuleMark;
+    }
+
+    public void setSecondModuleMark(String secondModuleMark) {
+        this.secondModuleMark = secondModuleMark;
+    }
+
+    public String getAverageMark() {
+        return averageMark;
+    }
+
+    public void setAverageMark(String averageMark) {
+        this.averageMark = averageMark;
+    }
+
+    public String getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public void setTotalQuantity(String totalQuantity) {
+        this.totalQuantity = totalQuantity;
+    }
+
+    public String getAvailableQuantity() {
+        return availableQuantity;
+    }
+
+    public void setAvailableQuantity(String availableQuantity) {
+        this.availableQuantity = availableQuantity;
     }
 }
