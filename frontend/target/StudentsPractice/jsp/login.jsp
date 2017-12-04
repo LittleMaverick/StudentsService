@@ -37,7 +37,7 @@
 
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input name="_spring_security_remember_me" type="checkbox">Remember me</label>
+                        <input name="remember-me" type="checkbox">Remember me</label>
                     </label>
                 </div>
 

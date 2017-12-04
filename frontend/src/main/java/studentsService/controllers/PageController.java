@@ -17,14 +17,27 @@ import java.security.Principal;
 @Controller
 public class PageController {
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error) {
+
+        ModelAndView model = new ModelAndView();
+        if (error != null) {
+            model.addObject("error", "Invalid username or password");
+        }
+
+        model.setViewName("login");
+
+        return model;
+    }
+
 
     @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
     public ModelAndView accessDenied(Principal user) {
         ModelAndView model = new ModelAndView();
 
-        if(user != null){
+        if (user != null) {
             model.addObject("errorMsg", user.getName() + ", у Вас нет прав доступа к этой странице.");
-        }else {
+        } else {
             model.addObject("errorMsg", "У Вас нет прав доступа к этой странице.");
         }
 
@@ -38,57 +51,40 @@ public class PageController {
         String defaultUserRole = "ROLE_STUDENT";
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)){
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
             User userDetails = (User) authentication.getPrincipal();
 
-                for (GrantedAuthority authority : userDetails.getAuthorities()) {
-                    defaultUserRole = authority.getAuthority();
-                }
+            for (GrantedAuthority authority : userDetails.getAuthorities()) {
+                defaultUserRole = authority.getAuthority();
+            }
 
-                switch (defaultUserRole){
-                    case "ROLE_STUDENT":{
-                        defaultRedirectionURL = "userPage";
-                        break;
-                    }
-                    case "ROLE_ADMIN":{
-                        defaultRedirectionURL = "adminPage";
-                        break;
-                    }
-                    case "ROLE_HEAD_MASTER":{
-                        defaultRedirectionURL = "/headMasterPage";
-                        break;
-                    }
+            switch (defaultUserRole) {
+                case "ROLE_STUDENT": {
+                    defaultRedirectionURL = "userPage";
+                    break;
                 }
-
-                return defaultRedirectionURL;
-        }
-        else {
+                case "ROLE_ADMIN": {
+                    defaultRedirectionURL = "adminPage";
+                    break;
+                }
+                case "ROLE_HEAD_MASTER": {
+                    defaultRedirectionURL = "/headMasterPage";
+                    break;
+                }
+            }
+            return defaultRedirectionURL;
+        } else {
             return defaultRedirectionURL;
         }
     }
 
     @RequestMapping(value = "/adminPage", method = RequestMethod.GET)
-    public String adminPage()
-    {
+    public String adminPage() {
         return "adminPage";
     }
 
     @RequestMapping(value = "/userPage", method = RequestMethod.GET)
-    public String userPage()
-    {
+    public String userPage() {
         return "userPage";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(@RequestParam(value = "error", required = false) String error){
-
-        ModelAndView model = new ModelAndView();
-        if (error != null){
-            model.addObject("error", "Invalid username or password");
-        }
-
-        model.setViewName("login");
-
-        return model;
     }
 }
