@@ -15,10 +15,11 @@
         <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
 
-        <intercept-url pattern="/jsp/*" access="denyAll()"/>
+        <intercept-url pattern="/jsp/*" access="isAuthenticated()"/>
 
         <form-login login-page="/login"
-                    default-target-url="/userPage"
+                    default-target-url="/redirectManager"
+                    always-use-default-target="true"
                     authentication-failure-url="/login?error=true"
                     username-parameter="username"
                     password-parameter="password"

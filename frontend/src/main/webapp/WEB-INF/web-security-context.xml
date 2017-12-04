@@ -18,7 +18,8 @@
         <intercept-url pattern="/jsp/*" access="isAuthenticated()"/>
 
         <form-login login-page="/login"
-                    default-target-url="/userPage"
+                    default-target-url="/redirectManager"
+                    always-use-default-target="true"
                     authentication-failure-url="/login?error=true"
                     username-parameter="username"
                     password-parameter="password"
