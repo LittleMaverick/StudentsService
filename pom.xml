@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>StudentsService</groupId>
+    <groupId>students_service</groupId>
     <artifactId>StudentsService</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <name>StudentsService</name>
     <url>http://maven.apache.org</url>
 
     <modules>
@@ -17,7 +18,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-
         <spring.version>4.3.11.RELEASE</spring.version>
 
         <commons-dbcp.version>1.4</commons-dbcp.version>
