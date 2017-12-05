@@ -17,7 +17,7 @@
         <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
 
-        <intercept-url pattern="/jsp/*" access="isAuthenticated()"/>
+       <!-- <intercept-url pattern="/jsp/*" access="isAuthenticated()"/>-->
         <intercept-url pattern="/resources/**" access="permitAll"/>
 
         <access-denied-handler error-page="/accessDenied" />

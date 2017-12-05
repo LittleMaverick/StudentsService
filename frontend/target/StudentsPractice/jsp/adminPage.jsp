@@ -6,21 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Administration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <link href="../../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
-    <script src="../../resources/js/libs/bootstrap-table.js"></script>
+    <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
+    <script src="../resources/js/libs/bootstrap-table.js"></script>
 </head>
 <body>
 
-<div class="container">
-        <a href="/j_spring_security_Logout" class="btn btn-danger"> Log out</a>
-</div>
+
+    <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
+
+
 
 <div class="container">
+
+
+
     <jsp:include page="/jsp/blocks/title.jsp">
         <jsp:param name="heading" value="Information about all students" />
     </jsp:include>
