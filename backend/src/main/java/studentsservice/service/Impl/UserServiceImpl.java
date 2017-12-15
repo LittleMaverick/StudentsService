@@ -2,6 +2,7 @@ package studentsservice.service.Impl;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import studentsservice.entities.UserEntity;
@@ -17,8 +18,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserEntity save(UserEntity userEntity) {
+        userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
 
         return userRepository.save(userEntity);
     }

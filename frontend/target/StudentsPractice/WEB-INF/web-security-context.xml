@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:beans="http://www.springframework.org/schema/beans"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.springframework.org/schema/c"
              xsi:schemaLocation="http://www.springframework.org/schema/security
              http://www.springframework.org/schema/security/spring-security.xsd
              http://www.springframework.org/schema/beans
@@ -15,7 +15,7 @@
         <remember-me remember-me-parameter="remember-me" token-validity-seconds="86400"/>
 
       <!--  <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>-->
-        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
         <intercept-url pattern="/headMasterPage" access="hasRole('ROLE_HEADMASTER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/studentRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
@@ -39,11 +39,15 @@
         <logout logout-url="/j_spring_security_Logout" logout-success-url="/login" />
     </http>
 
-    <authentication-manager>
-        <authentication-provider user-service-ref="customUserDetailsService">
 
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="customUserDetailsService">
+            <password-encoder ref="bcryptEncoder"/>
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
     <beans:bean id="customUserDetailsService" class="studentsService.security.CustomUserDetailService"/>
 

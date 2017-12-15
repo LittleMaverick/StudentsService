@@ -23,12 +23,6 @@ import java.util.Map;
 public class HeadOfPracticeController {
 
     @Autowired
-    private ConversionService conversionService;
-
-    @Autowired
-    private HeadOfPracticeService headOfPracticeService;
-
-    @Autowired
     private CreationService creationService;
 
     @Autowired
@@ -36,7 +30,7 @@ public class HeadOfPracticeController {
 
     @RequestMapping(value = "/headMasterRegistration", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> headMasterRegistration(@RequestBody HeadMasterDTO headMasterDTO, BindingResult bindingResult) {
+    public Map<String, String> headMasterRegistration(@RequestBody HeadMasterDTO headMasterDTO) {
 
 
         UserEntity userEntity = entityCreator.getUserEntity(headMasterDTO.getRole(),

@@ -14,7 +14,6 @@
 
         <remember-me remember-me-parameter="remember-me" token-validity-seconds="86400"/>
 
-      <!--  <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>-->
         <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
         <intercept-url pattern="/headMasterPage" access="hasRole('ROLE_HEADMASTER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
@@ -39,11 +38,13 @@
         <logout logout-url="/j_spring_security_Logout" logout-success-url="/login" />
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserDetailsService">
-
+            <password-encoder ref="bcryptEncoder"/>
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
     <beans:bean id="customUserDetailsService" class="studentsService.security.CustomUserDetailService"/>
 
