@@ -12,16 +12,13 @@
 <head>
     <title>Administration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
+    <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
 </head>
 <body>
 
-    <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
-
 <div class="container">
-
-
 
     <jsp:include page="/jsp/blocks/title.jsp">
         <jsp:param name="heading" value="Information about all students" />
@@ -33,22 +30,19 @@
 
             <a href="#" class="btn btn-primary"><span></span> Create faculty</a>
             <a href="#" class="btn btn-primary"><span></span> Create speciality</a>
-            <a href="#" class="btn btn-primary"><span></span> Register student</a>
-            <a href="#" class="btn btn-primary"><span></span> Register head of practice</a>
-
-            <%--<button type="submit" class="btn btn-primary">Assign student(s)</button>--%>
-            <%--<button type="submit" class="btn btn-primary">Release student(s)</button>--%>
-            <%--<button type="submit" class="btn btn-danger">Delete student(s)</button>--%>
+            <a href="/studentRegistrationPage" class="btn btn-primary"><span></span> Register student</a>
+            <a href="/headMasterRegistrationPage" class="btn btn-primary"><span></span> Register head of practice</a>
 
     </div>
 </div>
 
-
-<br/>
 <div class="container">
 
-    <table class="table table-hover" data-toggle="table"
+    <table  data-toggle="table"
            data-click-to-select="true"
+           data-pagination="true"
+           data-page-size="4"
+           data-search="true"
            data-classes="table table-hover"
            data-url="/students">
         <thead>
@@ -61,8 +55,6 @@
             <th data-field="status" data-sortable="true">Status</th>
             <th data-field="company">Company</th>
             <th data-field="practicePeriod">Period</th>
-            <%--<th data-field="groupNumber"  >Group</th>--%>
-            <%--<th data-field="email"  >Email</th>--%>
             <th data-field="id" data-formatter="LinkFormatter">Show</th>
         </tr>
         </thead>
@@ -70,18 +62,18 @@
 </div>
 <br/>
 
-<div class="container">
-    <div class="btn-toolbar">
-
-        <button type="submit" class="btn btn-danger">Delete student(s)</button>
-        <button type="submit" class="btn btn-primary">Assign student(s)</button>
-        <button type="submit" class="btn btn-primary">Release student(s)</button>
+    <div class="container">
+        <div class="btn-toolbar">
+            <button type="submit" class="btn btn-danger">Delete student(s)</button>
+            <button type="submit" class="btn btn-primary">Assign student(s)</button>
+            <button type="submit" class="btn btn-primary">Release student(s)</button>
+        </div>
     </div>
-</div>
+
 
 <script>
     function LinkFormatter(value, row, index) {
-        return "<a href=\"+value+\" class=\"btn btn-primary\">Show</a>";
+        return "<a href=\"userPage/"+value+"\" class=\"btn btn-primary\">Show</a>";
     }
 </script>
 

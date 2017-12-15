@@ -5,7 +5,7 @@ import studentsService.beans.StudentProfileViewModel;
 import studentsservice.entities.AppointStudentEntity;
 import studentsservice.entities.StudentEntity;
 
-public class StudentEntityToStudentProfileViewModel implements Converter<StudentEntity, StudentProfileViewModel>{
+public class StudentEntityToStudentProfileViewModel implements Converter< StudentEntity, StudentProfileViewModel>{
 
     @Override
     public StudentProfileViewModel convert(StudentEntity studentEntity) {

@@ -19,6 +19,7 @@
         <div class="col">
         </div>
         <div class="col login-border">
+
             <form  name="form_login" action="j_spring_security_check" method="post" >
 
                 <c:if test="${not empty error}">
@@ -49,6 +50,6 @@
     </div>
     <br>
 
-        <jsp:include page="/jsp/blocks/footer.jsp"/>
+    <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>

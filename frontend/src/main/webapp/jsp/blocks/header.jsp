@@ -3,6 +3,3 @@
 <script src="../../resources/js/libs/bootstrap.min.js"></script>
 <link href="../../resources/css/libs/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="../../resources/css/main.css" rel="stylesheet" type="text/css" media="all"/>
-<body>
-
-</body>

@@ -14,16 +14,22 @@
 
         <remember-me remember-me-parameter="remember-me" token-validity-seconds="86400"/>
 
-        <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>
+      <!--  <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>-->
+        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
+        <intercept-url pattern="/headMasterPage" access="hasRole('ROLE_HEADMASTER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/studentRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/headMasterRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
 
-       <!-- <intercept-url pattern="/jsp/*" access="isAuthenticated()"/>-->
+
+        <intercept-url pattern="/login" access="isAnonymous()"/>
+        <intercept-url pattern="/jsp/*" access="denyAll"/>
         <intercept-url pattern="/resources/**" access="permitAll"/>
 
         <access-denied-handler error-page="/accessDenied" />
 
         <form-login login-page="/login"
-                    default-target-url="/redirectManager"
+                    default-target-url="/home"
                     always-use-default-target="true"
                     authentication-failure-url="/login?error=true"
                     username-parameter="username"

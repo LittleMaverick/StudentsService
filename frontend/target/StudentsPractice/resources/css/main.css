@@ -13,8 +13,8 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
 
 .main-name{
     padding: 30px;
+    text-align: center;
 }
-
 
 footer{
     position: absolute;
@@ -27,6 +27,7 @@ footer{
     border-bottom: 1px solid #cc830f;
 
 }
+
 footer .footer-wrapper{
     padding: 12px;
 }
@@ -37,7 +38,6 @@ footer .copyright{
 }
 
 .btn-primary {
-
     margin-right: 7px;
     margin-bottom: 0px;
 }
@@ -47,3 +47,6 @@ footer .copyright{
   margin-right: 7px;
 }
 
+.registrationStudentForm{
+    margin-bottom: 50px;
+}

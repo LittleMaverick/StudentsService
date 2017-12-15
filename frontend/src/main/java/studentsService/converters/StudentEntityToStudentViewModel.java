@@ -25,7 +25,7 @@ public class StudentEntityToStudentViewModel implements Converter<StudentEntity,
         //studentViewModel.setSpeciality(studentEntity.getSpecialitiesBySpecialityId().getName());
         studentViewModel.setSpeciality(conversionService.convert(studentEntity.getSpecialitiesBySpecialityId(), SpecialityViewModel.class));
 
-        studentViewModel.setUserViewModel(conversionService.convert(studentEntity.getUsersById(), UserViewModel.class));
+        studentViewModel.setUserViewModel(conversionService.convert(studentEntity.getUserByUserId(), UserViewModel.class));
         return studentViewModel;
     }
 }

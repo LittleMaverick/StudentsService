@@ -54,7 +54,6 @@
 .fixed-table-body {
     overflow-x: auto;
     overflow-y: auto;
-    height: 100%;
 }
 
 .fixed-table-container table {
@@ -148,17 +147,30 @@
 
 .fixed-table-pagination div.pagination,
 .fixed-table-pagination .pagination-detail {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .fixed-table-pagination div.pagination .pagination {
     margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    float: left;
 }
+
+.fixed-table-pagination .pagination ul li{
+    position: relative;
+    left: -50%;
+    float: left;
+}
+
 
 .fixed-table-pagination .pagination a {
     padding: 6px 12px;
     line-height: 1.428571429;
+    text-decoration: none;
 }
 
 .fixed-table-pagination .pagination-info {
@@ -200,7 +212,7 @@
 .fixed-table-toolbar .search,
 .fixed-table-toolbar .columns {
     position: relative;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
     line-height: 34px;
 }

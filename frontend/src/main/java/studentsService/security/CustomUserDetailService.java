@@ -41,7 +41,9 @@ public class CustomUserDetailService implements UserDetailsService {
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(grantedAuthority);
 
-        UserDetails details = new User(userName, password,true,true,true,true, authorities);
+        UserDetails details = new User(userName,
+                password,
+                true,true,true,true, authorities);
         return details;
     }
 }
