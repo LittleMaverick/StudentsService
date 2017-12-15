@@ -19,9 +19,9 @@ public class UserServiceImpl implements UserService {
 
 
     public UserEntity save(UserEntity userEntity) {
+
         return userRepository.save(userEntity);
     }
-
 
     public void delete(int id) {
         userRepository.delete(id);

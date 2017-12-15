@@ -16,4 +16,5 @@ public interface StudentService  {
     List<StudentEntity> findByStatus(String status);
     StudentEntity findByEmail(String email);
     StudentEntity findById(int id);
+    StudentEntity findByUserId(int userId);
 }

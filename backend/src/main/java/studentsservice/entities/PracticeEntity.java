@@ -8,6 +8,7 @@ import java.util.Collection;
 @Table(name = "practices", schema = "students_service", catalog = "")
 public class PracticeEntity {
     private int id;
+    private int specialityId;
     private int facultyId;
     private int headOfPracticeId;
     private Date startDate;
@@ -35,7 +36,17 @@ public class PracticeEntity {
     }
 
     @Basic
-    @Column(name = "faculty_id", nullable = false)
+    @Column(name = "speciality_id", nullable = false, insertable = false, updatable = false)
+    public int getSpecialityId() {
+        return specialityId;
+    }
+
+    public void setSpecialityId(int specialityId) {
+        this.specialityId = specialityId;
+    }
+
+    @Basic
+    @Column(name = "faculty_id", nullable = false, insertable = false, updatable = false)
     public int getFacultyId() {
         return facultyId;
     }
@@ -45,7 +56,7 @@ public class PracticeEntity {
     }
 
     @Basic
-    @Column(name = "headOfPractice_id", nullable = false)
+    @Column(name = "headOfPractice_id", nullable = false, insertable = false, updatable = false)
     public int getHeadOfPracticeId() {
         return headOfPracticeId;
     }
@@ -144,6 +155,46 @@ public class PracticeEntity {
         this.averageMark = averageMark;
     }
 
+
+    @OneToMany(mappedBy = "practicesByPracticeId")
+    public Collection<AppointStudentEntity> getAppointStudentsById() {
+        return appointStudentsById;
+    }
+
+    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
+        this.appointStudentsById = appointStudentsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "speciality_id", referencedColumnName = "id", nullable = false)
+    public SpecialityEntity getSpecialitiesBySpecialityId() {
+        return specialitiesBySpecialityId;
+    }
+
+    public void setSpecialitiesBySpecialityId(SpecialityEntity specialitiesBySpecialityId) {
+        this.specialitiesBySpecialityId = specialitiesBySpecialityId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
+    public FacultyEntity getFacultiesByFacultyId() {
+        return facultiesByFacultyId;
+    }
+
+    public void setFacultiesByFacultyId(FacultyEntity facultiesByFacultyId) {
+        this.facultiesByFacultyId = facultiesByFacultyId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "headOfPractice_id", referencedColumnName = "id", nullable = false)
+    public HeadOfPracticeEntity getHeadofpracticesByHeadOfPracticeId() {
+        return headofpracticesByHeadOfPracticeId;
+    }
+
+    public void setHeadofpracticesByHeadOfPracticeId(HeadOfPracticeEntity headofpracticesByHeadOfPracticeId) {
+        this.headofpracticesByHeadOfPracticeId = headofpracticesByHeadOfPracticeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -152,6 +203,7 @@ public class PracticeEntity {
         PracticeEntity that = (PracticeEntity) o;
 
         if (id != that.id) return false;
+        if (specialityId != that.specialityId) return false;
         if (facultyId != that.facultyId) return false;
         if (headOfPracticeId != that.headOfPracticeId) return false;
         if (totalQuantity != that.totalQuantity) return false;
@@ -177,6 +229,7 @@ public class PracticeEntity {
         int result;
         long temp;
         result = id;
+        result = 31 * result + specialityId;
         result = 31 * result + facultyId;
         result = 31 * result + headOfPracticeId;
         result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
@@ -194,44 +247,5 @@ public class PracticeEntity {
         result = 31 * result + (facultiesByFacultyId != null ? facultiesByFacultyId.hashCode() : 0);
         result = 31 * result + (headofpracticesByHeadOfPracticeId != null ? headofpracticesByHeadOfPracticeId.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "practicesByPracticeId")
-    public Collection<AppointStudentEntity> getAppointStudentsById() {
-        return appointStudentsById;
-    }
-
-    public void setAppointStudentsById(Collection<AppointStudentEntity> appointStudentsById) {
-        this.appointStudentsById = appointStudentsById;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "speciality_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    public SpecialityEntity getSpecialitiesBySpecialityId() {
-        return specialitiesBySpecialityId;
-    }
-
-    public void setSpecialitiesBySpecialityId(SpecialityEntity specialitiesBySpecialityId) {
-        this.specialitiesBySpecialityId = specialitiesBySpecialityId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    public FacultyEntity getFacultiesByFacultyId() {
-        return facultiesByFacultyId;
-    }
-
-    public void setFacultiesByFacultyId(FacultyEntity facultiesByFacultyId) {
-        this.facultiesByFacultyId = facultiesByFacultyId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "headOfPractice_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    public HeadOfPracticeEntity getHeadofpracticesByHeadOfPracticeId() {
-        return headofpracticesByHeadOfPracticeId;
-    }
-
-    public void setHeadofpracticesByHeadOfPracticeId(HeadOfPracticeEntity headofpracticesByHeadOfPracticeId) {
-        this.headofpracticesByHeadOfPracticeId = headofpracticesByHeadOfPracticeId;
     }
 }

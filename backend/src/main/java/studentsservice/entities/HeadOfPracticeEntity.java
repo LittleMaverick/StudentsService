@@ -42,6 +42,26 @@ public class HeadOfPracticeEntity {
         this.userId = userId;
     }
 
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    public UserEntity getUsersByUserId() {
+        return usersByUserId;
+    }
+
+    public void setUsersByUserId(UserEntity usersByUserId) {
+        this.usersByUserId = usersByUserId;
+    }
+
+    @OneToMany(mappedBy = "headofpracticesByHeadOfPracticeId")
+    public Collection<PracticeEntity> getPracticesById() {
+        return practicesById;
+    }
+
+    public void setPracticesById(Collection<PracticeEntity> practicesById) {
+        this.practicesById = practicesById;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,24 +85,5 @@ public class HeadOfPracticeEntity {
         result = 31 * result + (usersByUserId != null ? usersByUserId.hashCode() : 0);
         result = 31 * result + (practicesById != null ? practicesById.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    public UserEntity getUsersByUserId() {
-        return usersByUserId;
-    }
-
-    public void setUsersByUserId(UserEntity usersByUserId) {
-        this.usersByUserId = usersByUserId;
-    }
-
-    @OneToMany(mappedBy = "headofpracticesByHeadOfPracticeId")
-    public Collection<PracticeEntity> getPracticesById() {
-        return practicesById;
-    }
-
-    public void setPracticesById(Collection<PracticeEntity> practicesById) {
-        this.practicesById = practicesById;
     }
 }

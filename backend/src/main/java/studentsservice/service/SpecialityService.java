@@ -11,7 +11,7 @@ public interface SpecialityService {
 
     List<SpecialityEntity> findAll();
     SpecialityEntity findById(int id);
-    SpecialityEntity findSpecialitiesByFacultyId(int faculty_id);
+    List<SpecialityEntity> findSpecialitiesByFacultyId(int faculty_id);
     SpecialityEntity findByName(String name);
 
 }

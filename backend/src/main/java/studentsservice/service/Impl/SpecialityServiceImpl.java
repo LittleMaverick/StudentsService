@@ -35,12 +35,9 @@ public class SpecialityServiceImpl implements SpecialityService{
     }
 
 
-    public SpecialityEntity findSpecialitiesByFacultyId(int faculty_id) {
-        List<SpecialityEntity> specialitiesByFaculty_id = specialityRepository.findSpecialitiesByFacultyId(Integer.valueOf(faculty_id));
-        if (!CollectionUtils.isEmpty(specialitiesByFaculty_id)) {
-            return specialitiesByFaculty_id.get(0);
-        }
-        return null;
+    public List<SpecialityEntity> findSpecialitiesByFacultyId(int faculty_id) {
+
+        return specialityRepository.findSpecialitiesByFacultyId(faculty_id);
     }
 
 

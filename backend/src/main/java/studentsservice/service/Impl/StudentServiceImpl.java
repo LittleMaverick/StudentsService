@@ -59,4 +59,8 @@ public class StudentServiceImpl implements StudentService {
     public StudentEntity findById(int id) {
         return studentRepository.findOne(id);
     }
+
+    public StudentEntity findByUserId(int userId) {
+        return studentRepository.findByUserId(userId);
+    }
 }

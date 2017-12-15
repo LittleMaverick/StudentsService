@@ -3,6 +3,7 @@ package studentsservice.entities;
 import javax.persistence.*;
 import java.util.Collection;
 
+
 @Entity
 @Table(name = "users", schema = "students_service", catalog = "")
 public class UserEntity {
@@ -10,9 +11,8 @@ public class UserEntity {
     private String role;
     private String username;
     private String password;
-    private Integer studentId;
     private Collection<HeadOfPracticeEntity> headofpracticesById;
-    private StudentEntity studentsByStudentId;
+    private Collection<StudentEntity> studentsById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -54,14 +54,23 @@ public class UserEntity {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "student_id", nullable = true, insertable = false, updatable = false)
-    public Integer getStudentId() {
-        return studentId;
+
+    @OneToMany(mappedBy = "usersByUserId")
+    public Collection<HeadOfPracticeEntity> getHeadofpracticesById() {
+        return headofpracticesById;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setHeadofpracticesById(Collection<HeadOfPracticeEntity> headofpracticesById) {
+        this.headofpracticesById = headofpracticesById;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<StudentEntity> getStudentsById() {
+        return studentsById;
+    }
+
+    public void setStudentsById(Collection<StudentEntity> studentsById) {
+        this.studentsById = studentsById;
     }
 
     @Override
@@ -75,10 +84,9 @@ public class UserEntity {
         if (role != null ? !role.equals(that.role) : that.role != null) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (studentId != null ? !studentId.equals(that.studentId) : that.studentId != null) return false;
         if (headofpracticesById != null ? !headofpracticesById.equals(that.headofpracticesById) : that.headofpracticesById != null)
             return false;
-        return studentsByStudentId != null ? studentsByStudentId.equals(that.studentsByStudentId) : that.studentsByStudentId == null;
+        return studentsById != null ? studentsById.equals(that.studentsById) : that.studentsById == null;
     }
 
     @Override
@@ -87,41 +95,8 @@ public class UserEntity {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (studentId != null ? studentId.hashCode() : 0);
         result = 31 * result + (headofpracticesById != null ? headofpracticesById.hashCode() : 0);
-        result = 31 * result + (studentsByStudentId != null ? studentsByStudentId.hashCode() : 0);
+        result = 31 * result + (studentsById != null ? studentsById.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "usersByUserId")
-    public Collection<HeadOfPracticeEntity> getHeadofpracticesById() {
-        return headofpracticesById;
-    }
-
-    public void setHeadofpracticesById(Collection<HeadOfPracticeEntity> headofpracticesById) {
-        this.headofpracticesById = headofpracticesById;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id")
-    public StudentEntity getStudentsByStudentId() {
-        return studentsByStudentId;
-    }
-
-    public void setStudentsByStudentId(StudentEntity studentsByStudentId) {
-        this.studentsByStudentId = studentsByStudentId;
-    }
-
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", role='" + role + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", studentId=" + studentId +
-                ", headofpracticesById=" + headofpracticesById +
-                ", studentsByStudentId=" + studentsByStudentId +
-                '}';
     }
 }

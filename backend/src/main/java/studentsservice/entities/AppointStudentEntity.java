@@ -41,27 +41,6 @@ public class AppointStudentEntity {
         this.practiceId = practiceId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AppointStudentEntity that = (AppointStudentEntity) o;
-
-        if (id != that.id) return false;
-        if (studentId != that.studentId) return false;
-        if (practiceId != that.practiceId) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + studentId;
-        result = 31 * result + practiceId;
-        return result;
-    }
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
@@ -81,5 +60,30 @@ public class AppointStudentEntity {
 
     public void setPracticesByPracticeId(PracticeEntity practicesByPracticeId) {
         this.practicesByPracticeId = practicesByPracticeId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AppointStudentEntity that = (AppointStudentEntity) o;
+
+        if (id != that.id) return false;
+        if (studentId != that.studentId) return false;
+        if (practiceId != that.practiceId) return false;
+        if (studentsByStudentId != null ? !studentsByStudentId.equals(that.studentsByStudentId) : that.studentsByStudentId != null)
+            return false;
+        return practicesByPracticeId != null ? practicesByPracticeId.equals(that.practicesByPracticeId) : that.practicesByPracticeId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + studentId;
+        result = 31 * result + practiceId;
+        result = 31 * result + (studentsByStudentId != null ? studentsByStudentId.hashCode() : 0);
+        result = 31 * result + (practicesByPracticeId != null ? practicesByPracticeId.hashCode() : 0);
+        return result;
     }
 }

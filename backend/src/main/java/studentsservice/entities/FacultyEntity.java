@@ -31,25 +31,6 @@ public class FacultyEntity {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        FacultyEntity that = (FacultyEntity) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
 
     @OneToMany(mappedBy = "facultiesByFacultyId")
     public Collection<PracticeEntity> getPracticesById() {
@@ -67,5 +48,28 @@ public class FacultyEntity {
 
     public void setSpecialitiesById(Collection<SpecialityEntity> specialitiesById) {
         this.specialitiesById = specialitiesById;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FacultyEntity that = (FacultyEntity) o;
+
+        if (id != that.id) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (practicesById != null ? !practicesById.equals(that.practicesById) : that.practicesById != null)
+            return false;
+        return specialitiesById != null ? specialitiesById.equals(that.specialitiesById) : that.specialitiesById == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (practicesById != null ? practicesById.hashCode() : 0);
+        result = 31 * result + (specialitiesById != null ? specialitiesById.hashCode() : 0);
+        return result;
     }
 }

@@ -43,27 +43,6 @@ public class SpecialityEntity {
         this.facultyId = facultyId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        SpecialityEntity that = (SpecialityEntity) o;
-
-        if (id != that.id) return false;
-        if (facultyId != that.facultyId) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + facultyId;
-        return result;
-    }
 
     @OneToMany(mappedBy = "specialitiesBySpecialityId")
     public Collection<PracticeEntity> getPracticesById() {
@@ -91,5 +70,33 @@ public class SpecialityEntity {
 
     public void setStudentsById(Collection<StudentEntity> studentsById) {
         this.studentsById = studentsById;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SpecialityEntity that = (SpecialityEntity) o;
+
+        if (id != that.id) return false;
+        if (facultyId != that.facultyId) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (practicesById != null ? !practicesById.equals(that.practicesById) : that.practicesById != null)
+            return false;
+        if (facultiesByFacultyId != null ? !facultiesByFacultyId.equals(that.facultiesByFacultyId) : that.facultiesByFacultyId != null)
+            return false;
+        return studentsById != null ? studentsById.equals(that.studentsById) : that.studentsById == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + facultyId;
+        result = 31 * result + (practicesById != null ? practicesById.hashCode() : 0);
+        result = 31 * result + (facultiesByFacultyId != null ? facultiesByFacultyId.hashCode() : 0);
+        result = 31 * result + (studentsById != null ? studentsById.hashCode() : 0);
+        return result;
     }
 }
