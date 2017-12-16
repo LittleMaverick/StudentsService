@@ -2,16 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
 
-<nav class="navbar navbar-light" style="background-color: #07f7f4;">
+<nav class="navbar navbar-light navCustom " >
     <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/login"><em>Student Service</em></a>
-        <a class="navbar-brand" href="/home" style="color: #0ac46c;"> Home </a>
+        <a class="brandLogo navbar-brand " ><span>Student Service </span> </a>
+        <a class="brandHome navbar-brand " href="/home" ><span> Home</span></a>
     </div>
 
 
-    <div class="nav-item">
-        <span class="navbar-text"> You are logged as </span> <strong> <%=SecurityContextHolder.getContext().getAuthentication().getName()%> </strong>
+    <div class="nav-item navAuthor">
+        <span> You are logged as </span> <strong> <%=SecurityContextHolder.getContext().getAuthentication().getName()%> </strong>
     </div>
 
     <ul class="nav navbar-nav navbar-right">

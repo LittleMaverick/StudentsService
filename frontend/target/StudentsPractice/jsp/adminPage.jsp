@@ -24,14 +24,14 @@
         <jsp:param name="heading" value="Information about all students" />
     </jsp:include>
 
-    <div class="btn-toolbar">
+    <div class="btn-toolbar ">
 
-            <a href="#" class="btn btn-primary">Show all requests</a>
+            <a href="#" class="btn btn-primary customBtn">Show all requests</a>
 
-            <a href="#" class="btn btn-primary"><span></span> Create faculty</a>
-            <a href="#" class="btn btn-primary"><span></span> Create speciality</a>
-            <a href="/studentRegistrationPage" class="btn btn-primary"><span></span> Register student</a>
-            <a href="/headMasterRegistrationPage" class="btn btn-primary"><span></span> Register head of practice</a>
+            <a href="#" class="btn btn-primary customBtn"><span></span> Create faculty</a>
+            <a href="#" class="btn btn-primary customBtn"><span></span> Create speciality</a>
+            <a href="/studentRegistrationPage" class="btn btn-primary customBtn"><span></span> Register student</a>
+            <a href="/headMasterRegistrationPage" class="btn btn-primary customBtn"><span></span> Register head of practice</a>
 
     </div>
 </div>
@@ -65,8 +65,8 @@
     <div class="container">
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger">Delete student(s)</button>
-            <button type="submit" class="btn btn-primary">Assign student(s)</button>
-            <button type="submit" class="btn btn-primary">Release student(s)</button>
+            <button type="submit" class="btn btn-primary customBtn">Assign student(s)</button>
+            <button type="submit" class="btn btn-primary customBtn">Release student(s)</button>
         </div>
     </div>
 

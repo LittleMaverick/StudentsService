@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:beans="http://www.springframework.org/schema/beans"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.springframework.org/schema/c"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/security
              http://www.springframework.org/schema/security/spring-security.xsd
              http://www.springframework.org/schema/beans
@@ -14,12 +14,13 @@
 
         <remember-me remember-me-parameter="remember-me" token-validity-seconds="86400"/>
 
-      <!--  <intercept-url pattern="/userPage" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN')"/>-->
-        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
+        <intercept-url pattern="/*" access="permitAll" />
+
+<!--        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
         <intercept-url pattern="/headMasterPage" access="hasRole('ROLE_HEADMASTER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/studentRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/headMasterRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/headMasterRegistrationPage" access="hasRole('ROLE_ADMIN')"/>-->
 
 
         <intercept-url pattern="/login" access="isAnonymous()"/>
@@ -38,8 +39,6 @@
 
         <logout logout-url="/j_spring_security_Logout" logout-success-url="/login" />
     </http>
-
-
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserDetailsService">

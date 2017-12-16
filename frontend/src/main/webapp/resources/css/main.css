@@ -3,6 +3,10 @@ html {
     min-height: 100%;
 }
 
+body{
+    background-color: #edeef0;
+}
+
 a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     margin: 0;
     padding: 0;
@@ -14,6 +18,38 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
 .main-name{
     padding: 30px;
     text-align: center;
+}
+
+.navCustom{
+    padding: 2px;
+    background-color: #4a76a8;
+}
+
+.brandLogo span{
+    color: #d7e2ec;
+    font-family: "Exodus - Personal Use Sharpen";
+}
+
+.brandHome span{
+    color: #d7e2ec;
+}
+
+.brandHome span:hover{
+    color: #fff;
+}
+
+.navAuthor strong{
+    color: #fff;
+}
+
+.navAuthor span{
+    color: #d7e2ec;
+    opacity: 0.9;
+}
+
+.customBtn{
+    background-color: #4a76a8;
+    border-color: #4a76a8;
 }
 
 footer{
