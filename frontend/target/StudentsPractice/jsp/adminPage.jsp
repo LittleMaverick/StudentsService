@@ -55,25 +55,29 @@
             <th data-field="status" data-sortable="true">Status</th>
             <th data-field="company">Company</th>
             <th data-field="practicePeriod">Period</th>
-            <th data-field="id" data-formatter="LinkFormatter">Show</th>
+            <th data-field="id" data-formatter="LinkFormatter">More</th>
         </tr>
         </thead>
     </table>
-</div>
-<br/>
 
-    <div class="container">
+    <br/>
+
+  <%--  <div class="container">--%>
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger">Delete student(s)</button>
             <button type="submit" class="btn btn-primary customBtn">Assign student(s)</button>
             <button type="submit" class="btn btn-primary customBtn">Release student(s)</button>
         </div>
-    </div>
+    <%--</div>--%>
+</div>
+
+
+
 
 
 <script>
     function LinkFormatter(value, row, index) {
-        return "<a href=\"userPage/"+value+"\" class=\"btn btn-primary\">Show</a>";
+        return "<a href=\"userPage/"+value+"\" class=\"btn btn-primary customBtnMore\">more...</a>";
     }
 </script>
 

@@ -9,7 +9,6 @@
         <a class="brandHome navbar-brand " href="/home" ><span> Home</span></a>
     </div>
 
-
     <div class="nav-item navAuthor">
         <span> You are logged as </span> <strong> <%=SecurityContextHolder.getContext().getAuthentication().getName()%> </strong>
     </div>

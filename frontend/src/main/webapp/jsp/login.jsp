@@ -28,16 +28,16 @@
 
                 <div class="form-group">
                     <label >Login</label>
-                    <input type="text" class="form-control" name="username" placeholder="Enter login">
+                    <input type="text" class="form-control form-username" name="username" placeholder="Enter login">
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control form-password" name="password" placeholder="Password">
                 </div>
 
                 <div class="form-check">
-                    <label class="form-check-label">
+                    <label class="form-check-label rememberMe">
                         <input name="remember-me" type="checkbox">Remember me</label>
                     </label>
                 </div>

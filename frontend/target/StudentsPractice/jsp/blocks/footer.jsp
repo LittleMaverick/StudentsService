@@ -11,7 +11,7 @@
 
     <footer>
         <div class="footer-wrapper">
-            <span class="copyright">&copy; 2017 Netcracker. All rights reserved.</span>
+           <span id="footerNet">Net</span><span id="footerCracker">Cracker </span><span class="copyright"> &copy; 2017 All rights reserved. </span>
         </div>
     </footer>
 
