@@ -17,6 +17,8 @@ $(document).ready(function () {
     elements.studentRegSubmitBtn.click(function(){
         registrationStudent()
     });
+
+
 });
 
     function registrationStudent() {
@@ -40,16 +42,12 @@ $(document).ready(function () {
                 "groupNumber":$('#student_groupNumber').val()}),
 
             success: function (data) {
-                    if(data){
 
-                    }
-                    else{
+                    if(!data){
+                        alert("Student registered successfully");
                         window.location.href = "/adminPage"
                     }
 
-            },
-            error: function () {
-                window.location.href = "/studentRegistrationPage"
             }
 
         });

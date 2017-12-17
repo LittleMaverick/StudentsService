@@ -59,10 +59,11 @@ public class StudentDataController {
     public Map<String, String> registrationStudent(@RequestBody StudentDTO studentDTO, BindingResult bindingResult) {
 
         studentDTOValidator.validate(studentDTO, bindingResult);
+
         if (bindingResult.hasErrors() ){
             Map<String, String> errors = new HashMap<>();
             for (FieldError error : bindingResult.getFieldErrors()) {
-                errors.put(error.getField(), error.getDefaultMessage());
+                errors.put(error.getField(), error.getCode());
             }
             return errors;
         }

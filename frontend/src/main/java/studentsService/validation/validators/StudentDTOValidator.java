@@ -10,6 +10,7 @@ import studentsService.dto.StudentDTO;
 import studentsservice.service.StudentService;
 import studentsservice.service.UserService;
 
+
 @Component
 public class StudentDTOValidator implements Validator{
 
@@ -41,10 +42,20 @@ public class StudentDTOValidator implements Validator{
 
         StudentDTO studentDTO = (StudentDTO) obj;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","Field is required");
+/*        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","Field is required");
         if(userService.findByUsername(studentDTO.getUsername()) != null){
             errors.rejectValue("username","Username has been already in use");
+        }*/
+
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Field is required");
+        if (studentDTO.getUsername().length() < 4 || studentDTO.getUsername().length() > 32) {
+            errors.rejectValue("username", "Use character between 4 and 32");
         }
+        if (userService.findByUsername(studentDTO.getUsername()) != null) {
+            errors.rejectValue("username", "Username has been already in use");
+        }
+
+
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"password","Field is required");
         if(userService.findByPassword(studentDTO.getPassword()) != null){
@@ -55,6 +66,7 @@ public class StudentDTOValidator implements Validator{
         if(studentService.findByEmail(studentDTO.getEmail()) != null){
             errors.rejectValue("email","Email has been already in use");
         }
+
 
     }
 }

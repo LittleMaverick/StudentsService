@@ -28,12 +28,12 @@
 
                 <div class="form-group">
                     <label >Login</label>
-                    <input type="text" class="form-control form-username" name="username" placeholder="Enter login">
+                    <input type="text" class="form-control form-username" name="username" placeholder="Enter login" required minlength="3">
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control form-password" name="password" placeholder="Password">
+                    <input type="password" class="form-control form-password" name="password" placeholder="Password" required minlength="4">
                 </div>
 
                 <div class="form-check">
