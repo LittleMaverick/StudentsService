@@ -30,9 +30,6 @@ function headMasterRegistration() {
 
                 success: function () {
                     window.location.href = "/adminPage"
-                },
-                error: function () {
-                    window.location.href = "/studentRegistrationPage"
                 }
 
     });

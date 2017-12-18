@@ -58,7 +58,7 @@ public class StudentDataController {
     @ResponseBody
     public Map<String, String> registrationStudent(@RequestBody StudentDTO studentDTO, BindingResult bindingResult) {
 
-        studentDTOValidator.validate(studentDTO, bindingResult);
+/*        studentDTOValidator.validate(studentDTO, bindingResult);
 
         if (bindingResult.hasErrors() ){
             Map<String, String> errors = new HashMap<>();
@@ -66,7 +66,7 @@ public class StudentDataController {
                 errors.put(error.getField(), error.getCode());
             }
             return errors;
-        }
+        }*/
 
         UserEntity userEntity = entityCreator.getUserEntity(studentDTO.getRole(),
                                                             studentDTO.getUsername(),

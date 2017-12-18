@@ -28,9 +28,6 @@
 <div class="container">
 
     <div class="row">
-    <%--    <div class="col">
-        </div>
-        <div class="col login-border">--%>
         <form class="registrationStudentForm">
 
             <div class="form-group">
@@ -100,9 +97,8 @@
                 <button id="student_reg_submit_btn" type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
 
-        </form>
+         </form>
         </div>
-    <%--    <div class="col">  </div>--%>
     </div>
 </div>
 

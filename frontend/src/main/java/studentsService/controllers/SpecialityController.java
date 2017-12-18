@@ -4,15 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import studentsService.beans.SpecialityViewModel;
+import studentsService.dto.SpecialityDTO;
+import studentsservice.components.EntityCreator;
 import studentsservice.entities.SpecialityEntity;
+import studentsservice.service.CreationService;
 import studentsservice.service.SpecialityService;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class SpecialityController {
@@ -22,6 +23,12 @@ public class SpecialityController {
 
     @Autowired
     private ConversionService conversionService;
+
+    @Autowired
+    private EntityCreator entityCreator;
+
+    @Autowired
+    private CreationService creationService;
 
     private final TypeDescriptor specialityEntityTypeDescriptor = TypeDescriptor.valueOf(SpecialityEntity.class);
     private final TypeDescriptor specialityViewModelTypeDescriptor = TypeDescriptor.valueOf(SpecialityViewModel.class);
@@ -42,6 +49,16 @@ public class SpecialityController {
     public List<SpecialityViewModel> getSpecialities(@PathVariable int id) {
         List<SpecialityEntity> specialityEntities = specialityService.findSpecialitiesByFacultyId(id);
         return (List<SpecialityViewModel>) conversionService.convert(specialityEntities,ListOfSpecialityEntityTypeDescriptor,ListOfSpecialityViewModelTypeDescriptor);
+    }
+
+    @RequestMapping(value = "/registrationSpeciality", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> registerSpeciality(@RequestBody SpecialityDTO specialityDTO) {
+
+        SpecialityEntity specialityEntity = entityCreator.getSpecialityEntity(specialityDTO.getName(),Integer.parseInt(specialityDTO.getFacultyId()));
+
+        creationService.createSpeciality(specialityEntity);
+        return null;
     }
 
 /*    @RequestMapping(value = "/specialities/{id}", method = RequestMethod.GET)

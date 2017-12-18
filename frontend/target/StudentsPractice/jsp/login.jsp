@@ -16,14 +16,10 @@
     </jsp:include>
 
     <div class="row">
-        <div class="col">
-        </div>
-        <div class="col login-border">
-
-            <form  name="form_login" action="j_spring_security_check" method="post" >
+            <form class="commonForm" name="form_login" action="j_spring_security_check" method="post" >
 
                 <c:if test="${not empty error}">
-                        <span class="error">${error}</span>
+                        <span class="text-danger">${error}</span>
                 </c:if>
 
                 <div class="form-group">
@@ -44,11 +40,8 @@
 
                 <button type="submit" name="submit" class="btn btn-primary btn-block">Log in</button>
             </form>
-
-        </div>
-        <div class="col">  </div>
     </div>
-    <br>
+</div>
 
     <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

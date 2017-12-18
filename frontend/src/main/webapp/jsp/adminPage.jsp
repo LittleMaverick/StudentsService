@@ -28,8 +28,8 @@
 
             <a href="#" class="btn btn-primary customBtn">Show all requests</a>
 
-            <a href="#" class="btn btn-primary customBtn"><span></span> Create faculty</a>
-            <a href="#" class="btn btn-primary customBtn"><span></span> Create speciality</a>
+            <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>
+            <a href="/specialityRegistrationPage" class="btn btn-primary customBtn"><span></span> Create speciality</a>
             <a href="/studentRegistrationPage" class="btn btn-primary customBtn"><span></span> Register student</a>
             <a href="/headMasterRegistrationPage" class="btn btn-primary customBtn"><span></span> Register head of practice</a>
 
@@ -42,6 +42,7 @@
            data-click-to-select="true"
            data-pagination="true"
            data-page-size="4"
+           data-page-list=""
            data-search="true"
            data-classes="table table-hover"
            data-url="/students">

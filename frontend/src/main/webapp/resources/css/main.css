@@ -15,6 +15,17 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     border: none;
 }
 
+
+.commonForm{
+    max-width: 600px;
+    min-width: 400px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px 20px 25px;
+    margin: auto;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3);
+}
+
 .form-username{
     background-image: url("../images/if_username_background.png");
     background-repeat: no-repeat;

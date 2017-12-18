@@ -32,7 +32,6 @@ public class HeadOfPracticeController {
     @ResponseBody
     public Map<String, String> headMasterRegistration(@RequestBody HeadMasterDTO headMasterDTO) {
 
-
         UserEntity userEntity = entityCreator.getUserEntity(headMasterDTO.getRole(),
                 headMasterDTO.getUsername(),
                 headMasterDTO.getPassword());

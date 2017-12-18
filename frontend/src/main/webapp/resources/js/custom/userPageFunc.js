@@ -10,5 +10,4 @@ $(document).ready(function ()
     $('#studentProfileTable').bootstrapTable('refreshOptions', studentsOptions);
     $('#studentProfileTable').bootstrapTable('refresh');
 
-
 });

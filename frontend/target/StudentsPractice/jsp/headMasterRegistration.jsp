@@ -24,10 +24,8 @@
 <div class="container">
 
     <div class="row">
-        <div class="col">
-        </div>
-        <div class="col login-border">
-            <form >
+
+            <form class="commonForm">
 
                 <div class="form-group">
                     <label class="control-label">Username:</label>
@@ -49,8 +47,7 @@
                 </div>
 
             </form>
-        </div>
-        <div class="col">  </div>
+
     </div>
 </div>
 

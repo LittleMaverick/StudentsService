@@ -41,17 +41,20 @@ $(document).ready(function () {
 
                 "groupNumber":$('#student_groupNumber').val()}),
 
-            success: function (data) {
-
-                    if(!data){
-                        alert("Student registered successfully");
-                        window.location.href = "/adminPage"
-                    }
-
+            success: function () {
+                alert("Student registered successfully");
+                window.location.href = "/adminPage"
             }
 
-        });
-    }
+     /*       success: function (data) {
+
+             if (!data) {
+             alert("Student registered successfully");
+             window.location.href = "/adminPage"
+             }
+             }*/
+    });
+}
 
 
 function getFaculties() {

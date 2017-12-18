@@ -113,4 +113,14 @@ public class PageController {
     public String headMasterRegistration() {
         return "headMasterRegistration";
     }
+
+    @RequestMapping(value = "/facultyRegistrationPage", method = RequestMethod.GET)
+    public String FacultyRegistration() {
+        return "facultyRegistration";
+    }
+
+    @RequestMapping(value = "/specialityRegistrationPage", method = RequestMethod.GET)
+    public String SpecialityRegistration() {
+        return "specialityRegistration";
+    }
 }
