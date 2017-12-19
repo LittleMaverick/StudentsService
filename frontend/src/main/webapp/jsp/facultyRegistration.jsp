@@ -5,7 +5,9 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/FacultyRegistration.js"></script>
+    <script src="../resources/js/custom/facultyRegistration/facultyRegistration.js"></script>
+    <script src="../resources/js/libs/jquery.validate.min.js"></script>
+    <script src="../resources/js/custom/facultyRegistration/facultyValidation.js"></script>
 </head>
 <body>
 
@@ -14,7 +16,7 @@
 <div class="container">
 
     <jsp:include page="/jsp/blocks/title.jsp">
-        <jsp:param name="heading" value="Registration page" />
+        <jsp:param name="heading" value="Page for faculty creation" />
     </jsp:include>
 
 </div>
@@ -24,7 +26,7 @@
 
     <div class="row">
 
-            <form class="commonForm">
+            <form class="commonForm" id="facultyRegistrationForm">
 
                 <div class="form-group">
                     <label class="control-label">Existing faculties:</label>
@@ -32,14 +34,13 @@
                     </select>
                 </div>
 
-
                 <div class="form-group">
                     <label class="control-label">Faculty name:</label>
-                    <input id="faculty_name" type="text" class="form-control" placeholder="Name" minlength="2" required>
+                    <input id="faculty_name" name="faculty_name" type="text" class="form-control" placeholder="Name">
                 </div>
 
                 <div class="form-group">
-                    <button id="faculty_reg_submit_btn" type="submit" class="btn btn-primary btn-block">Create</button>
+                    <button id="faculty_reg_submit_btn" type="button" class="btn btn-primary btn-block" disabled="disabled">Create</button>
                 </div>
 
             </form>

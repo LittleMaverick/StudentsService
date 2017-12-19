@@ -6,7 +6,9 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/HeadMasterRegistration.js"></script>
+    <script src="../resources/js/custom/headMasterRegistration/HeadMasterRegistration.js"></script>
+    <script src="../resources/js/libs/jquery.validate.min.js"></script>
+    <script src="../resources/js/custom/headMasterRegistration/headMasterValidation.js"></script>
 </head>
 <body>
 
@@ -25,25 +27,30 @@
 
     <div class="row">
 
-            <form class="commonForm">
+            <form class="commonForm" id="headMasterRegistrationForm">
 
                 <div class="form-group">
                     <label class="control-label">Username:</label>
-                    <input id="headMaster_username" type="text" class="form-control" placeholder="Username">
+                    <input id="headMaster_username" name="headMaster_username" type="text" class="form-control" placeholder="Username" autocomplete="off">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Password:</label>
-                    <input id="headMaster_password" type="password" class="form-control" placeholder="Password">
+                    <input id="headMaster_password" name="headMaster_password" type="password" class="form-control" placeholder="Password" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="password_repeat">Repeat password:</label>
+                    <input id="password_repeat" name="password_repeat" type="password" class="form-control" placeholder="Password" autocomplete="off">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">First name:</label>
-                    <input id="headMaster_name" type="text" class="form-control" placeholder="Name">
+                    <input id="headMaster_name" name="headMaster_name" type="text" class="form-control" placeholder="Name" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-                    <button id="headMaster_reg_submit_btn" type="button" class="btn btn-primary btn-block">Register</button>
+                    <button id="headMaster_reg_submit_btn" type="button" class="btn btn-primary btn-block" disabled="disabled">Register</button>
                 </div>
 
             </form>

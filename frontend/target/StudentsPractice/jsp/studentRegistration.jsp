@@ -9,8 +9,9 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/StudentRegistration.js"></script>
-<%--    <script src="../resources/js/custom/validationForms.js"></script>--%>
+    <script src="../resources/js/custom/studentRegistration/studentRegistration.js"></script>
+    <script src="../resources/js/libs/jquery.validate.min.js"></script>
+    <script src="../resources/js/custom/studentRegistration/studentValidation.js"></script>
 </head>
 <body>
 
@@ -28,48 +29,38 @@
 <div class="container">
 
     <div class="row">
-        <form class="registrationStudentForm">
+        <form class="registrationStudentForm" id="registrationStudentForm">
 
             <div class="form-group">
                 <label class="control-label" for="student_username">Username:</label>
-                    <input id="student_username" type="text" class="form-control" placeholder="Username" minlength="3" required>
-                    <ul class="input-requirements">
-                        <li>At least 3 characters long</li>
-                        <li>Must only contain letters and numbers (no special characters)</li>
-                    </ul>
+                    <input id="student_username" name="student_username" type="text" class="form-control" placeholder="Username">
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="student_password">Password:</label>
-                    <input id="student_password" type="password" class="form-control" placeholder="Password" maxlength="30" minlength="4" required>
-                    <ul class="input-requirements">
-                        <li>At least 4 characters long (and less than 30 characters)</li>
-                    </ul>
+                    <input id="student_password" name="student_password" type="password" class="form-control" placeholder="Password">
             </div>
+
+
+            <div class="form-group">
+                <label class="control-label" for="password_repeat">Repeat password:</label>
+                <input id="password_repeat" name="password_repeat" type="password" class="form-control" placeholder="Password">
+            </div>
+
 
             <div class="form-group">
                 <label class="control-label" for="student_firstName">First name:</label>
-                    <input id="student_firstName" type="text" class="form-control" placeholder="First name" maxlength="50" minlength="2" required>
-                    <ul class="input-requirements">
-                        <li>At least 2 characters long (and less than 50 characters)</li>
-                    </ul>
+                    <input id="student_firstName" name="student_firstName" type="text" class="form-control" placeholder="First name">
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="student_lastName">Last name:</label>
-                    <input id="student_lastName" type="text" class="form-control" placeholder="Last name" maxlength="50" minlength="2" required>
-                    <ul class="input-requirements">
-                        <li>At least 2 characters long (and less than 50 characters)</li>
-                    </ul>
+                    <input id="student_lastName" name="student_lastName" type="text" class="form-control" placeholder="Last name">
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="student_email">Email:</label>
-                    <input id="student_email" type="email" class="form-control" placeholder="E-mail" maxlength="100" minlength="5" required>
-                    <ul class="input-requirements">
-                        <li>Use expression like this: testmail@gmail.com</li>
-                        <li>At least 5 characters long (and less than 100 characters)</li>
-                    </ul>
+                    <input id="student_email" name="student_email" type="email" class="form-control" placeholder="E-mail">
             </div>
 
             <div class="form-group">
@@ -86,15 +77,11 @@
 
             <div class="form-group">
                 <label class="control-label">Group:</label>
-                    <input id="student_groupNumber" type="text" class="form-control" placeholder="473903" maxlength="10" minlength="2" required>
-                    <ul class="input-requirements">
-                        <li>Only numbers, please</li>
-                        <li>At least 2 characters long (and less than 10 characters)</li>
-                    </ul>
+                    <input id="student_groupNumber" name="student_groupNumber" type="text" class="form-control" placeholder="473903">
             </div>
 
             <div class="form-group">
-                <button id="student_reg_submit_btn" type="submit" class="btn btn-primary btn-block">Register</button>
+                <button id="student_reg_submit_btn" type="button" class="btn btn-primary btn-block" disabled="disabled">Register</button>
             </div>
 
          </form>
@@ -104,7 +91,7 @@
 
 <br/>
 
-
+<%--<script src="../resources/js/custom/validationForms.js"></script>--%>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>
