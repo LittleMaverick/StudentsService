@@ -15,6 +15,7 @@
     <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
+    <script src="../resources/js/custom/studentActions/deletion/studentDeletion.js"></script>
 </head>
 <body>
 
@@ -39,6 +40,7 @@
 <div class="container">
 
     <table  data-toggle="table"
+            id="adminTable"
            data-click-to-select="true"
            data-pagination="true"
            data-page-size="4"
@@ -63,13 +65,11 @@
 
     <br/>
 
-  <%--  <div class="container">--%>
         <div class="btn-toolbar">
-            <button type="submit" class="btn btn-danger">Delete student(s)</button>
+            <button type="submit" class="btn btn-danger" id="delete_student_btn" disabled="disabled">Delete student(s)</button>
             <button type="submit" class="btn btn-primary customBtn">Assign student(s)</button>
             <button type="submit" class="btn btn-primary customBtn">Release student(s)</button>
         </div>
-    <%--</div>--%>
 </div>
 
 

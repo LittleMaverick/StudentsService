@@ -9,9 +9,9 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/studentRegistration/studentRegistration.js"></script>
+    <script src="../resources/js/custom/studentActions/registration/studentRegistration.js"></script>
     <script src="../resources/js/libs/jquery.validate.min.js"></script>
-    <script src="../resources/js/custom/studentRegistration/studentValidation.js"></script>
+    <script src="../resources/js/custom/studentActions/validation/studentValidation.js"></script>
 </head>
 <body>
 
@@ -24,7 +24,6 @@
     </jsp:include>
 
 </div>
-
 
 <div class="container">
 
@@ -91,7 +90,6 @@
 
 <br/>
 
-<%--<script src="../resources/js/custom/validationForms.js"></script>--%>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>

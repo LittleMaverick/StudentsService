@@ -19,6 +19,7 @@ import studentsservice.components.EntityCreator;
 import studentsservice.entities.StudentEntity;
 import studentsservice.entities.UserEntity;
 import studentsservice.service.CreationService;
+import studentsservice.service.DeletionService;
 import studentsservice.service.StudentService;
 
 import java.util.HashMap;
@@ -41,6 +42,9 @@ public class StudentDataController {
     private CreationService creationService;
 
     @Autowired
+    private DeletionService deletionService;
+
+    @Autowired
     private EntityCreator entityCreator;
 
     private final TypeDescriptor studentEntityTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(StudentEntity.class));
@@ -52,6 +56,17 @@ public class StudentDataController {
     public List<StudentViewModel> getAllStudents() {
         List<StudentEntity> allStudents = studentService.findAll();
         return (List<StudentViewModel>) conversionService.convert(allStudents, studentEntityTypeDescriptor, studentDataViewModelTypeDescriptor);
+    }
+
+    @RequestMapping(value = "/students", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Map<String, String> deleteStudent(@RequestBody List<String> studentIDs){
+
+        for(String studentID : studentIDs){
+            deletionService.deleteStudent(Integer.parseInt(studentID));
+        }
+
+        return null;
     }
 
     @RequestMapping(value = "/registrationStudent", method = RequestMethod.POST)
