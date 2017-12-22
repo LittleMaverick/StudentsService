@@ -15,7 +15,7 @@
     <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
-    <script src="../resources/js/custom/studentActions/deletion/studentDeletion.js"></script>
+    <script src="../resources/js/custom/adminActions.js"></script>
 </head>
 <body>
 
@@ -45,6 +45,8 @@
            data-pagination="true"
            data-page-size="4"
            data-page-list=""
+           data-pagination-pre-text="Previous"
+           data-pagination-next-text="Next"
            data-search="true"
            data-classes="table table-hover"
            data-url="/students">
@@ -67,8 +69,8 @@
 
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger" id="delete_student_btn" disabled="disabled">Delete student(s)</button>
-            <button type="submit" class="btn btn-primary customBtn">Assign student(s)</button>
-            <button type="submit" class="btn btn-primary customBtn">Release student(s)</button>
+            <button type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
+            <button type="submit" class="btn btn-primary customBtn" id="release_student_btn" disabled="disabled">Release student(s)</button>
         </div>
 </div>
 

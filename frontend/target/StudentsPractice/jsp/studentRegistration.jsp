@@ -25,7 +25,6 @@
 
 </div>
 
-
 <div class="container">
 
     <div class="row">
@@ -91,7 +90,6 @@
 
 <br/>
 
-<%--<script src="../resources/js/custom/validationForms.js"></script>--%>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>

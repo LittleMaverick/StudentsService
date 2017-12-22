@@ -9,7 +9,9 @@ $(document).ready(function () {
 
     $('#adminTable').bootstrapTable().click(function () {
         getSelectedRows();
-       disableDeleteStudentBtn()
+        disableDeleteStudentBtn();
+        disableAssignStudentBtn();
+        disableReleaseStudentBtn();
     });
 
     function deleteStudent(){
@@ -45,6 +47,26 @@ $(document).ready(function () {
 
         }else {
             $('#delete_student_btn').prop("disabled", "disabled");
+        }
+    }
+
+    function disableAssignStudentBtn() {
+
+        if(selectedRow.length !== 0){
+            $('#assign_student_btn').prop("disabled", false);
+
+        }else {
+            $('#assign_student_btn').prop("disabled", "disabled");
+        }
+    }
+
+    function disableReleaseStudentBtn() {
+
+        if(selectedRow.length !== 0){
+            $('#release_student_btn').prop("disabled", false);
+
+        }else {
+            $('#release_student_btn').prop("disabled", "disabled");
         }
     }
 
