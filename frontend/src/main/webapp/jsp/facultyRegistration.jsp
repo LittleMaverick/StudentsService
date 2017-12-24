@@ -36,7 +36,8 @@
 
                 <div class="form-group">
                     <label class="control-label">Faculty name:</label>
-                    <input id="faculty_name" name="faculty_name" type="text" class="form-control" placeholder="Name">
+                    <input id="faculty_name" name="faculty_name" type="text" class="form-control" placeholder="Name" onfocus="removeError()" autocomplete="off">
+                    <div class="validation-form" id="name-error"></div>
                 </div>
 
                 <div class="form-group">

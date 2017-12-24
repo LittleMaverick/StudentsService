@@ -20,7 +20,7 @@ $(document).ready(function () {
                 }),
             success: function (data) {
                 if(data.username){
-                    alert(data.username);
+                    $("#name-error").html(data.username);
                 }
                 else{
                     alert("Headmaster '" + $('#headMaster_username').val() + "' registered successfully");
@@ -31,5 +31,7 @@ $(document).ready(function () {
     }
 });
 
-
+function removeError() {
+    $("#name-error").html("");
+}
 

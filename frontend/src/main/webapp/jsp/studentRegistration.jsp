@@ -32,7 +32,8 @@
 
             <div class="form-group">
                 <label class="control-label" for="student_username">Username:</label>
-                    <input id="student_username" name="student_username" type="text" class="form-control" placeholder="Username">
+                    <input id="student_username" name="student_username" type="text" class="form-control" placeholder="Username" onfocus="removeError()" autocomplete="off">
+                <div class="validation-form" id="name-error"></div>
             </div>
 
             <div class="form-group">
@@ -43,23 +44,24 @@
 
             <div class="form-group">
                 <label class="control-label" for="password_repeat">Repeat password:</label>
-                <input id="password_repeat" name="password_repeat" type="password" class="form-control" placeholder="Password">
+                <input id="password_repeat" name="password_repeat" type="password" class="form-control" placeholder="Password" >
             </div>
 
 
             <div class="form-group">
                 <label class="control-label" for="student_firstName">First name:</label>
-                    <input id="student_firstName" name="student_firstName" type="text" class="form-control" placeholder="First name">
+                    <input id="student_firstName" name="student_firstName" type="text" class="form-control" placeholder="First name" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="student_lastName">Last name:</label>
-                    <input id="student_lastName" name="student_lastName" type="text" class="form-control" placeholder="Last name">
+                    <input id="student_lastName" name="student_lastName" type="text" class="form-control" placeholder="Last name" autocomplete="off">
             </div>
 
             <div class="form-group">
                 <label class="control-label" for="student_email">Email:</label>
-                    <input id="student_email" name="student_email" type="email" class="form-control" placeholder="E-mail">
+                    <input id="student_email" name="student_email" type="email" class="form-control" placeholder="E-mail" onfocus="removeError()" autocomplete="off">
+                <div class="validation-form" id="email-name-error"></div>
             </div>
 
             <div class="form-group">
@@ -76,7 +78,7 @@
 
             <div class="form-group">
                 <label class="control-label">Group:</label>
-                    <input id="student_groupNumber" name="student_groupNumber" type="text" class="form-control" placeholder="473903">
+                    <input id="student_groupNumber" name="student_groupNumber" type="text" class="form-control" placeholder="473903" autocomplete="off">
             </div>
 
             <div class="form-group">

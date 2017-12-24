@@ -19,8 +19,9 @@ $(document).ready( function () {
                     "name":$('#speciality_name').val()
                 }),
             success: function (data) {
-                if(data.name){
-                    alert(data.name);
+
+                if(data.name) {
+                    $("#name-error").html(data.name);
                 }
                 else{
                     alert("Speciality '" + $('#speciality_name').val() + "' create successfully");
@@ -43,5 +44,12 @@ $(document).ready( function () {
             }
         });
     }
+
+
+
+
 });
 
+function removeError() {
+    $("#name-error").html("");
+}

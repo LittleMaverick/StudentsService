@@ -44,10 +44,10 @@ $(document).ready(function () {
 
         success: function (data) {
             if(data.username){
-                alert(data.username);
+                $("#name-error").html(data.username);
             }
             else if(data.email){
-                alert(data.email);
+                $("#email-name-error").html(data.email);
             }
             else{
                 alert("Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully");
@@ -88,4 +88,9 @@ function getSpecialitiesByFacultyId() {
             }
         }
     });
+}
+
+function removeError() {
+    $("#name-error").html("");
+    $("#email-name-error").html("");
 }

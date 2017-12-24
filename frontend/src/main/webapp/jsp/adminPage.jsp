@@ -16,6 +16,8 @@
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
     <script src="../resources/js/custom/adminActions.js"></script>
+    <script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
+
 </head>
 <body>
 
@@ -28,6 +30,7 @@
     <div class="btn-toolbar ">
 
             <a href="#" class="btn btn-primary customBtn">Show all requests</a>
+            <a href="/createPracticeRequest" class="btn btn-primary customBtn"><span></span> Request for practice</a>
 
             <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>
             <a href="/specialityRegistrationPage" class="btn btn-primary customBtn"><span></span> Create speciality</a>
@@ -69,7 +72,7 @@
 
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger" id="delete_student_btn" disabled="disabled">Delete student(s)</button>
-            <button type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
+            <button onclick="test()" type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
             <button type="submit" class="btn btn-primary customBtn" id="release_student_btn" disabled="disabled">Release student(s)</button>
         </div>
 </div>

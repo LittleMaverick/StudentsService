@@ -31,7 +31,8 @@
 
                 <div class="form-group">
                     <label class="control-label">Username:</label>
-                    <input id="headMaster_username" name="headMaster_username" type="text" class="form-control" placeholder="Username" autocomplete="off">
+                    <input id="headMaster_username" name="headMaster_username" type="text" class="form-control" placeholder="Username" autocomplete="off" onfocus="removeError()">
+                    <div class="validation-form" id="name-error"></div>
                 </div>
 
                 <div class="form-group">

@@ -18,7 +18,7 @@ $(document).ready( function () {
                 }),
             success: function (data) {
                 if(data.name){
-                    alert(data.name);
+                    $("#name-error").html(data.name);
                 }
                 else{
                     alert("Faculty '" + $('#faculty_name').val() + "' create successfully");
@@ -42,4 +42,9 @@ $(document).ready( function () {
         });
     }
 });
+
+function removeError() {
+    $("#name-error").html("");
+}
+
 
