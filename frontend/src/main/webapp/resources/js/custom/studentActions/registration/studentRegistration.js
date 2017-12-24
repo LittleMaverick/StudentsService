@@ -42,10 +42,19 @@ $(document).ready(function () {
                 "groupNumber":$('#student_groupNumber').val()
                 }),
 
-            success: function () {
+        success: function (data) {
+            if(data.username){
+                $("#name-error").html(data.username);
+            }
+            else if(data.email){
+                $("#email-name-error").html(data.email);
+            }
+            else{
                 alert("Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully");
                 window.location.href = "/adminPage"
             }
+
+        }
 
     });
 }
@@ -79,4 +88,9 @@ function getSpecialitiesByFacultyId() {
             }
         }
     });
+}
+
+function removeError() {
+    $("#name-error").html("");
+    $("#email-name-error").html("");
 }
