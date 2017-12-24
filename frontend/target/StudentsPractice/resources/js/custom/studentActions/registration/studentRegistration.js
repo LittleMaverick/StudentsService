@@ -42,10 +42,19 @@ $(document).ready(function () {
                 "groupNumber":$('#student_groupNumber').val()
                 }),
 
-            success: function () {
+        success: function (data) {
+            if(data.username){
+                alert(data.username);
+            }
+            else if(data.email){
+                alert(data.email);
+            }
+            else{
                 alert("Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully");
                 window.location.href = "/adminPage"
             }
+
+        }
 
     });
 }

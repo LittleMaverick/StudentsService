@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -73,7 +72,7 @@ public class StudentDataController {
     @ResponseBody
     public Map<String, String> registrationStudent(@RequestBody StudentDTO studentDTO, BindingResult bindingResult) {
 
-/*        studentDTOValidator.validate(studentDTO, bindingResult);
+        studentDTOValidator.validate(studentDTO, bindingResult);
 
         if (bindingResult.hasErrors() ){
             Map<String, String> errors = new HashMap<>();
@@ -81,7 +80,7 @@ public class StudentDataController {
                 errors.put(error.getField(), error.getCode());
             }
             return errors;
-        }*/
+        }
 
         UserEntity userEntity = entityCreator.getUserEntity(studentDTO.getRole(),
                                                             studentDTO.getUsername(),

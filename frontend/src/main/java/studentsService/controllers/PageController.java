@@ -123,4 +123,9 @@ public class PageController {
     public String SpecialityRegistration() {
         return "specialityRegistration";
     }
+
+    @RequestMapping(value = "/createPracticeRequest", method = RequestMethod.GET)
+    public String PracticeRequestCreation() {
+        return "practiceRequest";
+    }
 }
