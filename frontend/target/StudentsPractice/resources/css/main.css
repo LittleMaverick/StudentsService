@@ -116,14 +116,6 @@ footer .copyright{
     color: #212529;
 }
 
-footer #footerNet{
-    color: #231f20;
-}
-
-footer #footerCracker{
-    color: #027dc3;
-}
-
 .registrationStudentForm{
     max-width: 600px;
     min-width: 420px;
@@ -133,6 +125,18 @@ footer #footerCracker{
     padding-right: 20px;
     padding-top: 20px;
     margin: auto auto 50px;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3);
+}
+
+.PracticeRequestForm{
+    max-width: 600px;
+    min-width: 420px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    margin: auto auto 80px;
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3);
 }
 

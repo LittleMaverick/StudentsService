@@ -25,6 +25,9 @@ public class CreationService {
     @Autowired
     private FacultyService facultyService;
 
+    @Autowired
+    private PracticeService practiceService;
+
 
     @Transactional
     public void createStudent(UserEntity userEntity, StudentEntity studentEntity){
@@ -66,5 +69,23 @@ public class CreationService {
         specialityEntity.setFacultiesByFacultyId(facultyEntity);
 
         specialityService.save(specialityEntity);
+    }
+
+    @Transactional
+    public void createPractice(PracticeEntity practiceEntity){
+
+        HeadOfPracticeEntity headOfPracticeEntity = headOfPracticeService.findById(practiceEntity.getHeadOfPracticeId());
+
+        practiceEntity.setHeadofpracticesByHeadOfPracticeId(headOfPracticeEntity);
+
+        FacultyEntity facultyEntity = facultyService.findById(practiceEntity.getFacultyId());
+
+        practiceEntity.setFacultiesByFacultyId(facultyEntity);
+
+        SpecialityEntity specialityEntity = specialityService.findById(practiceEntity.getSpecialityId());
+
+        practiceEntity.setSpecialitiesBySpecialityId(specialityEntity);
+
+        practiceService.save(practiceEntity);
     }
 }

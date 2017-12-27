@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: littleF
-  Date: 15.10.2017
-  Time: 22:38
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -16,7 +10,6 @@
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
     <script src="../resources/js/custom/adminActions.js"></script>
-    <script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
 
 </head>
 <body>
@@ -72,7 +65,7 @@
 
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger" id="delete_student_btn" disabled="disabled">Delete student(s)</button>
-            <button onclick="test()" type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
+            <button type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
             <button type="submit" class="btn btn-primary customBtn" id="release_student_btn" disabled="disabled">Release student(s)</button>
         </div>
 </div>

@@ -3,6 +3,8 @@ package studentsservice.components;
 import org.springframework.stereotype.Component;
 import studentsservice.entities.*;
 
+import java.sql.Date;
+
 @Component
 public class EntityCreator {
 
@@ -58,6 +60,41 @@ public class EntityCreator {
         specialityEntity.setFacultyId(facultyId);
 
         return specialityEntity;
+    }
+
+    public PracticeEntity getPracticeEntity(int headOfPracticeId, String company, Date startDate, Date finishDate,
+                                            int totalQuantity, int facultyId, int specialityId){
+
+        PracticeEntity practiceEntity = new PracticeEntity();
+
+        practiceEntity.setHeadOfPracticeId(headOfPracticeId);
+
+        practiceEntity.setCompany(company);
+
+        practiceEntity.setStartDate(startDate);
+
+        practiceEntity.setFinishDate(finishDate);
+
+        practiceEntity.setTotalQuantity(totalQuantity);
+
+        practiceEntity.setAvailableQuantity(totalQuantity);
+
+        practiceEntity.setFacultyId(facultyId);
+
+        practiceEntity.setSpecialityId(specialityId);
+
+        practiceEntity.setStatus("Available");
+
+        return practiceEntity;
+    }
+
+    public AppointStudentEntity getAppointStudent(int studentId, int practiceId){
+        AppointStudentEntity appointStudentEntity = new AppointStudentEntity();
+
+        appointStudentEntity.setStudentId(studentId);
+        appointStudentEntity.setPracticeId(practiceId);
+
+        return  appointStudentEntity;
     }
 
 }

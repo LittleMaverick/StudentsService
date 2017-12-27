@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: littleF
-  Date: 15.10.2017
-  Time: 22:38
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -16,7 +10,7 @@
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <script src="../resources/js/libs/bootstrap-table.js"></script>
     <script src="../resources/js/custom/adminActions.js"></script>
-    <%--<script src="../resources/js/custom/studentActions/deletion/studentDeletion.js"></script>--%>
+
 </head>
 <body>
 
@@ -29,6 +23,7 @@
     <div class="btn-toolbar ">
 
             <a href="#" class="btn btn-primary customBtn">Show all requests</a>
+            <a href="/createPracticeRequest" class="btn btn-primary customBtn"><span></span> Request for practice</a>
 
             <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>
             <a href="/specialityRegistrationPage" class="btn btn-primary customBtn"><span></span> Create speciality</a>

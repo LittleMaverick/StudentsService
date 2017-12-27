@@ -6,7 +6,7 @@
     <title></title>
 </head>
 <body>
-<jsp:forward page="jsp/login.jsp"/>
+<c:redirect url="/home"/>
 
 </body>
 </html>

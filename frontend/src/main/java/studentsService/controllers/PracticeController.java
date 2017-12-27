@@ -16,9 +16,9 @@ import studentsservice.service.AppointService;
 import studentsservice.service.CreationService;
 import studentsservice.service.PracticeService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.sql.Date;
 
 @Controller
 public class PracticeController {
@@ -49,30 +49,16 @@ public class PracticeController {
     @ResponseBody
     public Map<String, String> registerPractice(@RequestBody PracticeDTO practiceDTO) {
 
-/*        UserEntity userEntity = entityCreator.getUserEntity(studentDTO.getRole(),
-                studentDTO.getUsername(),
-                studentDTO.getPassword());
+        PracticeEntity practiceEntity = entityCreator.getPracticeEntity(Integer.parseInt(practiceDTO.getHeadOfPracticeId()),
+                practiceDTO.getCompany(), Date.valueOf(practiceDTO.getStartDate()), Date.valueOf(practiceDTO.getFinishDate()),
+                Integer.parseInt(practiceDTO.getTotalQuantity()),
+                Integer.parseInt(practiceDTO.getFacultyId()),
+                Integer.parseInt(practiceDTO.getSpecialityId())
+        );
 
-        StudentEntity studentEntity = entityCreator.getStudentEntity(studentDTO.getFirstName(),
-                studentDTO.getLastName(),
-                studentDTO.getEmail(),
-                Integer.parseInt(studentDTO.getSpeciality()),
-                Integer.parseInt(studentDTO.getGroupNumber()));*/
+        creationService.createPractice(practiceEntity);
 
-
-       // creationService;
         return null;
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    @ResponseBody
-    public void test() {
-
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(3);
-
-
-        appointService.AppointStudent(1, list);
-    }
 }

@@ -37,7 +37,8 @@
 
             <div class="form-group">
                 <label class="control-label">Enter speciality:</label>
-                <input id="speciality_name" name="speciality_name" type="text" class="form-control" placeholder="Name">
+                <input id="speciality_name" name="speciality_name" type="text" class="form-control" placeholder="Name" onfocus="removeError()" autocomplete="off">
+                <div class="validation-form" id="name-error"></div>
             </div>
 
             <div class="form-group">
