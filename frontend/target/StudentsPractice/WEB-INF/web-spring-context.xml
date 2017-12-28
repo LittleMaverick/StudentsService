@@ -24,12 +24,5 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-<!--    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <value> </value>
-            </list>
-        </property>
-    </bean>-->
 
 </beans>

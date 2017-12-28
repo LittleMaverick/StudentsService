@@ -91,6 +91,7 @@ $(document).ready(function () {
 
     jQuery.validator.addMethod("emailValidator", function (value, element) {
         return this.optional(element) || /^[0-9a-zA-Z-.]+@[0-9a-zA-Z-]{2,}\.[a-z]{2,}$/.test(value);
-    }, "<p class='validation-form'>Please, enter a valid e-mail address</p> <p class='validation-form'>testMail@gmail.com (for example)</p>");
+    }, "<p class='validation-form'>Please, enter a valid e-mail address</p>" +
+        "<p class='validation-form'>testMail@gmail.com (for example)</p>");
 
 });

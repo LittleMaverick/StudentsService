@@ -32,7 +32,12 @@ $(document).ready(function () {
                     "headOfPracticeId":$('#request_headMaster').val()
                 }),
 
-            success: function (data) {
+            success: function () {
+                    alert("Request for practice in the company '" + $('#request_company_name').val() + "' created successfully");
+                    window.location.href = "/adminPage"
+            }
+
+/*            success: function (data) {
                 if(data.company){
                     $("#name-error").html(data.company);
                 }
@@ -41,7 +46,7 @@ $(document).ready(function () {
                     window.location.href = "/adminPage"
                 }
 
-            }
+            }*/
 
         });
     }

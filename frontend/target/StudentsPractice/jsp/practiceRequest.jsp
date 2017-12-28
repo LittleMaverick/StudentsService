@@ -10,7 +10,6 @@
     <title>Practice request</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
     <script src="../resources/js/libs/jquery.validate.min.js"></script>
-    <script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
 </head>
 <body>
 
@@ -31,7 +30,7 @@
 
             <div class="form-group">
                 <label class="control-label">Enter company name:</label>
-                <input id="request_company_name" name="company_name" type="text" class="form-control" placeholder="Name">
+                <input id="request_company_name" name="company_name" type="text" class="form-control" placeholder="Name" autocomplete="off">
             </div>
 
             <div class="form-group">
@@ -59,7 +58,7 @@
 
             <div class="form-group">
                 <label class="control-label">Total quantity:</label>
-                <input id="request_totalQuantity" name="request_totalQuantity" type="text" class="form-control" placeholder="10">
+                <input id="request_totalQuantity" name="request_totalQuantity" type="text" class="form-control" placeholder="10" autocomplete="off">
             </div>
 
             <div class="form-group">
@@ -69,13 +68,16 @@
             </div>
 
             <div class="form-group">
-                <button id="request_submit_btn" type="button" class="btn btn-primary btn-block" >Create</button>
+                <button id="request_submit_btn" type="button" class="btn btn-primary btn-block" disabled="disabled">Create</button>
             </div>
 
         </form>
     </div>
 </div>
 </div>
+
+<script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
+<script src="../resources/js/custom/practiceActions/practiceRequestValidation.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
