@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import studentsService.dto.AppointStudentsDTO;
 import studentsservice.service.AppointService;
+import studentsservice.service.ReleaseStudentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ public class AppointStudentsController {
 
     @Autowired
     private AppointService appointService;
+
+    @Autowired
+    private ReleaseStudentService releaseStudentService;
 
     @RequestMapping(value = "/appointStudents", method = RequestMethod.POST)
     @ResponseBody
@@ -30,4 +34,14 @@ public class AppointStudentsController {
 
         appointService.AppointStudent(Integer.parseInt(appointStudentsDTO.getPracticeId()), studentsIDs);
     }
+
+    @RequestMapping(value = "/releaseStudents", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void releaseStudents(@RequestBody List<String> studentIDs){
+
+        for(String studentId : studentIDs){
+            releaseStudentService.releaseStudent(Integer.parseInt(studentId));
+        }
+    }
+
 }

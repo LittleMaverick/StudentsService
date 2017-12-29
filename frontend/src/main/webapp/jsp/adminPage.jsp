@@ -25,11 +25,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label class="control-label">Choose practice: </label>
-                    <select id="availablePractices" class="form-control">
-                    </select>
-                </div>
+                <form id="assignForm">
+                    <div class="form-group">
+                        <label class="control-label">Choose practice: </label>
+                        <select id="availablePractices" class="form-control">
+                        </select>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,6 +111,8 @@
 <script src="../resources/js/libs/bootstrap.min.js"></script>
 <script src="../resources/js/libs/bootstrap-table.js"></script>
 <script src="../resources/js/custom/adminActions.js"></script>
+<script src="../resources/js/libs/jquery.validate.min.js"></script>
+<%--<script src="../resources/js/custom/assignStudentValidation.js"></script>--%>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
