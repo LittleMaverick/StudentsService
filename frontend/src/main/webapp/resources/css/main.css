@@ -83,6 +83,10 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     border-color: #4a76a8;
 }
 
+.customBtn:focus{
+    box-shadow: none;
+}
+
 .customBtnMore{
     background-color: #51687f;
     border-color: #51687f;
@@ -93,6 +97,10 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
 .customBtnMore:hover{
     background-color: #0062CC;
     border-color: #0062CC;
+}
+
+.customBtnMore:focus{
+    box-shadow: none;
 }
 
 footer{
