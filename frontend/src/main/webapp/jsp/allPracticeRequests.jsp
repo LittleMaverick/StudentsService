@@ -1,52 +1,97 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Practice requests</title>
+    <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
 
     <link href="../resources/css/libs/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="../resources/css/main.css" rel="stylesheet" type="text/css" media="all"/>
 
-   <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">--%>
 </head>
+<body>
 
-<jsp:include page="/jsp/blocks/navigationBar.jsp"/>
+<%--<div class="modal fade" id="assignModalForm" tabindex="-1" role="dialog" aria-labelledby="assignModalForm" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
 
-<br>
-
-<div class="container">
-    <div class="row mt-3">
-        <div class="col-12">
-            <button class="btn btn-success" data-toggle="modal" data-target="#firstModal">Открыть окно</button>
-
-            <div class="modal fade" id="firstModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Название модального окна</h5>
-                            <button class="close" data-dismiss="modal">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Соображения высшего порядка, а также курс
-                                на социально-ориентированный проект обеспечивает актуальность
-                                позиций, занимаемых участниками в отношении поставленных задач?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-dismiss="modal">Закрыть</button     >
-                        </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="assignModalLabel">Assign students</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="assignForm">
+                    <div class="form-group">
+                        <label class="control-label">Choose practice: </label>
+                        <select id="availablePractices" class="form-control">
+                        </select>
                     </div>
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="confirmAssign" class="btn btn-primary customBtn">Assign</button>
             </div>
         </div>
+
+    </div>
+</div>--%>
+
+<div class="container">
+
+    <jsp:include page="/jsp/blocks/title.jsp">
+        <jsp:param name="heading" value="Information about all practices" />
+    </jsp:include>
+
+</div>
+
+<div class="container">
+
+    <table  data-toggle="table"
+            id="allPracticeTable"
+            data-click-to-select="true"
+            data-pagination="true"
+            data-page-size="4"
+            data-page-list=""
+            data-pagination-pre-text="Previous"
+            data-pagination-next-text="Next"
+            data-search="true"
+            data-classes="table table-hover"
+            data-id-field="id"
+            data-url="/allPractices">
+        <thead>
+        <tr>
+            <th data-checkbox="true"></th>
+            <th data-field="company">Company name</th>
+            <th data-field="headOfPractice">Head of practice</th>
+            <th data-field="startDate"> Start date </th>
+            <th data-field="finishDate"> Finish date </th>
+            <th data-field="status">Status</th>
+            <th data-field="faculty">Faculty</th>
+            <th data-field="speciality">Speciality</th>
+            <th data-field="totalQuantity">Total</th>
+            <th data-field="availableQuantity">Available</th>
+        </tr>
+        </thead>
+    </table>
+
+    <br/>
+
+    <div class="btn-toolbar">
+        <button type="submit" class="btn btn-danger" id="delete_practice_btn" disabled="disabled">Delete practice(s)</button>
+
+        <button type="submit" class="btn btn-primary customBtn" id="edit_practice_btn" disabled="disabled">Edit practice</button>
     </div>
 </div>
 
 <script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 <script src="../resources/js/libs/bootstrap.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>--%>
+<script src="../resources/js/libs/bootstrap-table.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

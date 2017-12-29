@@ -50,7 +50,7 @@
 
     <div class="btn-toolbar ">
 
-            <a href="/showAllRequests" class="btn btn-primary customBtn">Show all requests</a>
+            <a href="/practices" class="btn btn-primary customBtn">Show all requests</a>
             <a href="/createPracticeRequest" class="btn btn-primary customBtn"><span></span> Request for practice</a>
 
             <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>

@@ -35,15 +35,11 @@ public class PracticeController {
     @Autowired
     private ConversionService conversionService;
 
-    @Autowired
-    private AppointService appointService;
-
     private final TypeDescriptor ListOfPracticeEntityTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(PracticeEntity.class));
     private final TypeDescriptor ListOfPracticeViewModelTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(PracticeViewModel.class));
 
     private final TypeDescriptor practiceEntityTypeDescriptor = TypeDescriptor.valueOf(PracticeEntity.class);
     private final TypeDescriptor practiceViewModelTypeDescriptor = TypeDescriptor.valueOf(PracticeViewModel.class);
-
 
     @RequestMapping(value = "/practice", method = RequestMethod.POST)
     @ResponseBody
@@ -64,7 +60,18 @@ public class PracticeController {
     @RequestMapping(value = "/AvailablePractice", method = RequestMethod.GET)
     @ResponseBody
     public List<PracticeViewModel> getAvailablePractices() {
+
         List<PracticeEntity> practiceEntities = practiceService.findByStatus("Available");
+
+        return (List<PracticeViewModel>) conversionService.convert(practiceEntities, ListOfPracticeEntityTypeDescriptor, ListOfPracticeViewModelTypeDescriptor);
+    }
+
+    @RequestMapping(value = "/allPractices", method = RequestMethod.GET)
+    @ResponseBody
+    public List<PracticeViewModel> getAllPractices() {
+
+        List<PracticeEntity> practiceEntities = practiceService.findAll();
+
         return (List<PracticeViewModel>) conversionService.convert(practiceEntities, ListOfPracticeEntityTypeDescriptor, ListOfPracticeViewModelTypeDescriptor);
     }
 

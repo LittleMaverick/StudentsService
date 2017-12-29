@@ -129,7 +129,7 @@ public class PageController {
         return "practiceRequest";
     }
 
-    @RequestMapping(value = "/showAllRequests", method = RequestMethod.GET)
+    @RequestMapping(value = "/practices", method = RequestMethod.GET)
     public String PracticeRequestsPage() {
         return "allPracticeRequests";
     }

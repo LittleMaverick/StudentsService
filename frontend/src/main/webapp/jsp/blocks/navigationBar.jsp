@@ -5,7 +5,7 @@
 <nav class="navbar navbar-light navCustom " >
     <div class="container">
     <div class="navbar-header">
-        <a class="brandLogo navbar-brand " ><span>Student Service </span> </a>
+        <a class="brandLogo navbar-brand " ><span>Practice Service </span> </a>
         <a class="brandHome navbar-brand " href="/home" ><span> Home</span></a>
     </div>
 
