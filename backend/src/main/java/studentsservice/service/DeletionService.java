@@ -25,6 +25,7 @@ public class DeletionService {
     @Autowired
     private PracticeService practiceService;
 
+    @Transactional
     public void deleteStudent(int id){
 
         StudentEntity studentEntity = studentService.findById(id);
@@ -38,5 +39,22 @@ public class DeletionService {
         }
 
         userService.delete(studentEntity.getUserId());
+    }
+
+    @Transactional
+    public void deletePractice(int id){
+
+        List<AppointStudentEntity> appointStudentEntities = appointStudentService.findByStudentId(id);
+
+        for(AppointStudentEntity appointStudentEntity : appointStudentEntities){
+
+            StudentEntity studentEntity = studentService.findById(appointStudentEntity.getStudentId());
+
+            studentEntity.setStatus("Available");
+
+            studentService.save(studentEntity);
+        }
+
+        practiceService.delete(id);
     }
 }

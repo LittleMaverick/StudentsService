@@ -14,6 +14,7 @@ import studentsservice.components.EntityCreator;
 import studentsservice.entities.PracticeEntity;
 import studentsservice.service.AppointService;
 import studentsservice.service.CreationService;
+import studentsservice.service.DeletionService;
 import studentsservice.service.PracticeService;
 
 import java.util.List;
@@ -31,6 +32,9 @@ public class PracticeController {
 
     @Autowired
     private PracticeService practiceService;
+
+    @Autowired
+    private DeletionService deletionService;
 
     @Autowired
     private ConversionService conversionService;
@@ -73,6 +77,17 @@ public class PracticeController {
         List<PracticeEntity> practiceEntities = practiceService.findAll();
 
         return (List<PracticeViewModel>) conversionService.convert(practiceEntities, ListOfPracticeEntityTypeDescriptor, ListOfPracticeViewModelTypeDescriptor);
+    }
+
+    @RequestMapping(value = "/practices", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Map<String, String> deletePractices(@RequestBody List<String> practicesIDs) {
+
+        for(String practiceId : practicesIDs) {
+            deletionService.deletePractice(Integer.parseInt(practiceId));
+        }
+
+        return null;
     }
 
 }

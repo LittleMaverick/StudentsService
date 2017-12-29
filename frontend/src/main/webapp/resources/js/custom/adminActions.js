@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
 
 
-    $('#adminTable').bootstrapTable().click(function () {
+    $('#adminTable').click(function () {
         getSelectedRows();
         disableDeleteStudentBtn();
         disableAssignStudentBtn();

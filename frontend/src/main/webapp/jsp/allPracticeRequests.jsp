@@ -92,6 +92,7 @@
 <script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 <script src="../resources/js/libs/bootstrap.min.js"></script>
 <script src="../resources/js/libs/bootstrap-table.js"></script>
+<script src="../resources/js/custom/practiceActions/deleteUpdateActions.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
