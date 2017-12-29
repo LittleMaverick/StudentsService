@@ -61,4 +61,11 @@ public class PracticeController {
         return null;
     }
 
+    @RequestMapping(value = "/AvailablePractice", method = RequestMethod.GET)
+    @ResponseBody
+    public List<PracticeViewModel> getAvailablePractices() {
+        List<PracticeEntity> practiceEntities = practiceService.findByStatus("Available");
+        return (List<PracticeViewModel>) conversionService.convert(practiceEntities, ListOfPracticeEntityTypeDescriptor, ListOfPracticeViewModelTypeDescriptor);
+    }
+
 }

@@ -11,8 +11,6 @@
     <name>StudentsService</name>
     <url>http://maven.apache.org</url>
 
-
-
     <modules>
         <module>backend</module>
         <module>frontend</module>

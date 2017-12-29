@@ -62,5 +62,6 @@ $(document).ready(function () {
 
             return isNaN(value) && isNaN($(params).val())
                 || (Number(value) > Number($(params).val()));
-        },"<p class='validation-form'>Finish date should be greater than start date of practice</p>");
+        },
+        "<p class='validation-form'>Finish date should be greater than start date of practice</p>");
 });

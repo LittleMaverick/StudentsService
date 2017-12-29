@@ -7,12 +7,23 @@ $(document).ready(function () {
         deleteStudent();
     });
 
+    $('#assign_student_btn').click(function () {
+        getAvailablePractices();
+    });
+
+    $('#confirmAssign').click(function () {
+       assignStudent();
+    });
+
+
+
     $('#adminTable').bootstrapTable().click(function () {
         getSelectedRows();
         disableDeleteStudentBtn();
         disableAssignStudentBtn();
         disableReleaseStudentBtn();
     });
+
 
     function deleteStudent(){
 
@@ -31,6 +42,8 @@ $(document).ready(function () {
                 selectedRow = [];
                 $('#adminTable').bootstrapTable('refresh');
                 disableDeleteStudentBtn();
+                disableAssignStudentBtn();
+                disableReleaseStudentBtn();
             }
         });
     }
@@ -68,6 +81,60 @@ $(document).ready(function () {
         }else {
             $('#release_student_btn').prop("disabled", "disabled");
         }
+    }
+
+    function getAvailablePractices() {
+        $.ajax({
+            url: '/AvailablePractice',
+            type: 'GET',
+            contentType: "application/json; charset=UTF-8",
+            data: '',
+            success: function (data) {
+                $('#availablePractices').empty();
+
+                for(var i = 0; i < Object.keys(data).length; i++)
+                {
+                    $('#availablePractices').append($("<option></option>")
+                        .attr("value", data[i].id)
+                        .attr("faculty", data[i].faculty)
+                        .attr("speciality", data[i].speciality)
+                        .text(data[i].company + " - Available quantity: " +  data[i].availableQuantity + " (Faculty: " + data[i].faculty + "; Speciality: " + data[i].speciality + " )" ));
+                }
+            }
+        });
+    }
+    
+    function assignStudent() {
+
+        var studentIDs = [];
+
+        for(var i in selectedRow){
+            studentIDs.push(selectedRow[i].id);
+        }
+
+        var confirmData = {
+            practiceId:   $('#availablePractices').val(),
+            studentIDs: studentIDs
+        };
+
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=UTF-8",
+            url:"/appointStudents",
+                data:JSON.stringify(confirmData),
+
+                success: function () {
+                    selectedRow = [];
+                    $('#adminTable').bootstrapTable('refresh');
+                    disableDeleteStudentBtn();
+                    disableAssignStudentBtn();
+                    disableReleaseStudentBtn();
+                    alert("Student(s) assign successfully");
+                    $('#assignModalForm').modal('toggle');
+                }
+            })
+
     }
 
 });

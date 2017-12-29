@@ -5,14 +5,40 @@
 <html>
 <head>
     <title>Administration</title>
-    <jsp:include page="/jsp/blocks/header.jsp"/>
     <jsp:include page="/jsp/blocks/navigationBar.jsp"/>
+
+    <link href="../resources/css/libs/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
-    <script src="../resources/js/libs/bootstrap-table.js"></script>
-    <script src="../resources/js/custom/adminActions.js"></script>
+    <link href="../resources/css/main.css" rel="stylesheet" type="text/css" media="all"/>
 
 </head>
 <body>
+
+<div class="modal fade" id="assignModalForm" tabindex="-1" role="dialog" aria-labelledby="assignModalForm" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="assignModalLabel">Assign students</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label">Choose practice: </label>
+                    <select id="availablePractices" class="form-control">
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="confirmAssign" class="btn btn-primary customBtn">Assign</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <div class="container">
 
@@ -22,7 +48,7 @@
 
     <div class="btn-toolbar ">
 
-            <a href="#" class="btn btn-primary customBtn">Show all requests</a>
+            <a href="/showAllRequests" class="btn btn-primary customBtn">Show all requests</a>
             <a href="/createPracticeRequest" class="btn btn-primary customBtn"><span></span> Request for practice</a>
 
             <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>
@@ -65,8 +91,11 @@
 
         <div class="btn-toolbar">
             <button type="submit" class="btn btn-danger" id="delete_student_btn" disabled="disabled">Delete student(s)</button>
-            <button type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled">Assign student(s)</button>
+
+            <button data-target="#assignModalForm" data-toggle="modal" type="submit" class="btn btn-primary customBtn" id="assign_student_btn" disabled="disabled" >Assign student(s)</button>
+
             <button type="submit" class="btn btn-primary customBtn" id="release_student_btn" disabled="disabled">Release student(s)</button>
+
         </div>
 </div>
 
@@ -76,6 +105,10 @@
     }
 </script>
 
+<script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
+<script src="../resources/js/libs/bootstrap.min.js"></script>
+<script src="../resources/js/libs/bootstrap-table.js"></script>
+<script src="../resources/js/custom/adminActions.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

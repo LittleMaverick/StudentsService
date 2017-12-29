@@ -128,4 +128,10 @@ public class PageController {
     public String PracticeRequestCreation() {
         return "practiceRequest";
     }
+
+    @RequestMapping(value = "/showAllRequests", method = RequestMethod.GET)
+    public String PracticeRequestsPage() {
+        return "allPracticeRequests";
+    }
+
 }
