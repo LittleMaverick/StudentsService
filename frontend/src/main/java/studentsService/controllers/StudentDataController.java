@@ -6,21 +6,19 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import studentsService.beans.StudentAndHeadViewModel;
 import studentsService.beans.StudentDataViewModel;
 import studentsService.beans.StudentViewModel;
 import studentsService.dto.StudentDTO;
 import studentsService.validation.validators.StudentDTOValidator;
 import studentsservice.components.EntityCreator;
+import studentsservice.entities.AppointStudentEntity;
 import studentsservice.entities.StudentEntity;
 import studentsservice.entities.UserEntity;
-import studentsservice.service.CreationService;
-import studentsservice.service.DeletionService;
-import studentsservice.service.StudentService;
+import studentsservice.service.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,8 +44,14 @@ public class StudentDataController {
     @Autowired
     private EntityCreator entityCreator;
 
+    @Autowired
+    private AppointStudentService appointStudentService;
+
     private final TypeDescriptor studentEntityTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(StudentEntity.class));
     private final TypeDescriptor studentDataViewModelTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(StudentDataViewModel.class));
+
+    private final TypeDescriptor ListOfStudentEntityTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(StudentEntity.class));
+    private final TypeDescriptor ListOfStudentAndHeadViewModelTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(StudentAndHeadViewModel.class));
 
 
     @RequestMapping(value = "/students", method = RequestMethod.GET)
@@ -97,4 +101,24 @@ public class StudentDataController {
 
         return null;
     }
+
+    @RequestMapping(value = "/students/headMaster/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<StudentAndHeadViewModel> getHeadAndStudents(@PathVariable String id) {
+
+        List<AppointStudentEntity> appointStudentEntities = appointStudentService.findAll();
+
+        List<StudentEntity> studentEntities = new ArrayList<>();
+
+        for (AppointStudentEntity appointStudentEntity : appointStudentEntities){
+
+            if ((String.valueOf(appointStudentEntity.getPracticesByPracticeId().getHeadOfPracticeId())).equals(id)){
+
+                studentEntities.add(appointStudentEntity.getStudentsByStudentId());
+            }
+        }
+
+        return (List<StudentAndHeadViewModel>) conversionService.convert(studentEntities, ListOfStudentEntityTypeDescriptor, ListOfStudentAndHeadViewModelTypeDescriptor);
+    }
+
 }

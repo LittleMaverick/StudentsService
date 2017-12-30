@@ -15,7 +15,6 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     border: none;
 }
 
-
 .commonForm{
     max-width: 600px;
     min-width: 400px;
@@ -38,7 +37,6 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     background-repeat: no-repeat;
     background-position-x: 95%;
     background-position-y: 50%;
-
 }
 
 .rememberMe{
@@ -51,6 +49,11 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     text-align: center;
 }
 
+.description{
+    text-align: center;
+    margin: 20px auto 10px;
+}
+
 .navCustom{
     padding: 2px;
     background-color: #4a76a8;
@@ -58,7 +61,6 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
 
 .brandLogo span{
     color: #d7e2ec;
-  /*  font-family: "Exodus - Personal Use Sharpen";*/
 }
 
 .brandHome span{
@@ -111,8 +113,6 @@ footer{
     height: 40px;
     background-color: #e0dcdc;
     text-align: center;
-    // border-bottom: 1px solid #cc830f;
-
 }
 
 footer .footer-wrapper{

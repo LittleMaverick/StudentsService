@@ -103,7 +103,7 @@
 
 <script>
     function LinkFormatter(value) {
-        return "<a href=\"userPage/"+value+"\" class=\"btn btn-primary customBtnMore\">more...</a>";
+        return "<a href=\"/userPage/"+value+"\" class=\"btn btn-primary customBtnMore\">more...</a>";
     }
 </script>
 

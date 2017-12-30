@@ -15,6 +15,7 @@
                 <bean class="studentsService.converters.AppointStudentEntityToAppointStudentViewModel"/>
                 <bean class="studentsService.converters.StudentEntityToStudentProfileViewModel"/>
                 <bean class="studentsService.converters.StudentEntityToStudentDataViewModel"/>
+                <bean class="studentsService.converters.StudentEntityToStudentAndHeadViewModel"/>
             </set>
         </property>
     </bean>

@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import studentsService.beans.PracticeViewModel;
 import studentsService.dto.PracticeDTO;
 import studentsservice.components.EntityCreator;
@@ -89,5 +86,14 @@ public class PracticeController {
 
         return null;
     }
+
+    @RequestMapping(value = "/practices/headMaster/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<PracticeViewModel> getHeadAndPractices(@PathVariable String id) {
+        List<PracticeEntity> practiceEntity = practiceService.findByHeadOfPracticeId(Integer.parseInt(id));
+
+        return (List<PracticeViewModel>) conversionService.convert(practiceEntity, ListOfPracticeEntityTypeDescriptor, ListOfPracticeViewModelTypeDescriptor);
+    }
+
 
 }
