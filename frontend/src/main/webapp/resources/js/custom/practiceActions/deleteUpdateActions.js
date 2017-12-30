@@ -29,7 +29,12 @@ $(document).ready(function () {
             data:JSON.stringify(practiceIDs),
             success: function () {
 
-                alert("Practice(s) deleted successfully");
+                swal({
+                    title: "Success",
+                    text: "Practice(s) has been deleted successfully",
+                    type: "success",
+                    confirmButtonText: "Ok"
+                });
 
                 selectedRow = [];
                 $('#allPracticeTable').bootstrapTable('refresh');
@@ -38,7 +43,6 @@ $(document).ready(function () {
             }
         });
     }
-
 
     function getSelectedRows() {
 

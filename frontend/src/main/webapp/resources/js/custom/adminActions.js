@@ -43,7 +43,12 @@ $(document).ready(function () {
             data:JSON.stringify(studentIDs),
             success: function () {
 
-                alert("Student(s) deleted successfully");
+                swal({
+                    title: "Success",
+                    text: "Student(s) deleted successfully",
+                    type: "success",
+                    confirmButtonText: "Ok"
+                });
 
                 selectedRow = [];
                 $('#adminTable').bootstrapTable('refresh');
@@ -80,7 +85,14 @@ $(document).ready(function () {
                     disableDeleteStudentBtn();
                     disableAssignStudentBtn();
                     disableReleaseStudentBtn();
-                    alert("Student(s) assign successfully");
+
+                    swal({
+                       title: "Success",
+                       text: "Student(s) assign successfully",
+                       type: "success",
+                       confirmButtonText: "Ok"
+                    });
+
                     $('#assignModalForm').modal('toggle');
                 }
             })
@@ -102,7 +114,12 @@ $(document).ready(function () {
             data:JSON.stringify(studentIDs),
             success: function () {
 
-                alert("Student(s) released successfully");
+                swal({
+                    title: "Success",
+                    text: "Student(s) released successfully",
+                    type: "success",
+                    confirmButtonText: "Ok"
+                });
 
                 selectedRow = [];
                 $('#adminTable').bootstrapTable('refresh');

@@ -9,7 +9,7 @@
 <head>
     <title>Practice request</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/libs/jquery.validate.min.js"></script>
+    <link href="../resources/css/libs/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
 
@@ -76,8 +76,11 @@
 </div>
 </div>
 
-<script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
+<script src="../resources/js/libs/jquery.validate.min.js"></script>
 <script src="../resources/js/custom/practiceActions/practiceRequestValidation.js"></script>
+<script src="../resources/js/libs/sweetalert2.min.js"></script>
+<script src="../resources/js/custom/practiceActions/creationPracticeRequest.js"></script>
+
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

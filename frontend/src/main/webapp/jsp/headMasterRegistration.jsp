@@ -6,9 +6,7 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/headMasterRegistration/HeadMasterRegistration.js"></script>
-    <script src="../resources/js/libs/jquery.validate.min.js"></script>
-    <script src="../resources/js/custom/headMasterRegistration/headMasterValidation.js"></script>
+    <link href="../resources/css/libs/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
 
@@ -62,6 +60,10 @@
 <br/>
 
 
+<script src="../resources/js/custom/headMasterRegistration/HeadMasterRegistration.js"></script>
+<script src="../resources/js/libs/jquery.validate.min.js"></script>
+<script src="../resources/js/custom/headMasterRegistration/headMasterValidation.js"></script>
+<script src="../resources/js/libs/sweetalert2.min.js"></script>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>

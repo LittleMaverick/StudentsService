@@ -5,9 +5,7 @@
 <head>
     <title>Registration</title>
     <jsp:include page="/jsp/blocks/header.jsp"/>
-    <script src="../resources/js/custom/specialityRegistration/specialityRegistration.js"></script>
-    <script src="../resources/js/libs/jquery.validate.min.js"></script>
-    <script src="../resources/js/custom/specialityRegistration/specialityValidation.js"></script>
+    <link href="../resources/css/libs/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
 
@@ -25,7 +23,6 @@
 <div class="container">
 
     <div class="row">
-
         <form class="commonForm" id="specialityRegistrationForm">
 
             <div class="form-group">
@@ -33,7 +30,6 @@
                 <select id="existing_faculties" class="form-control">
                 </select>
             </div>
-
 
             <div class="form-group">
                 <label class="control-label">Enter speciality:</label>
@@ -52,7 +48,10 @@
 
 <br/>
 
-
+<script src="../resources/js/custom/specialityRegistration/specialityRegistration.js"></script>
+<script src="../resources/js/libs/jquery.validate.min.js"></script>
+<script src="../resources/js/custom/specialityRegistration/specialityValidation.js"></script>
+<script src="../resources/js/libs/sweetalert2.min.js"></script>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>

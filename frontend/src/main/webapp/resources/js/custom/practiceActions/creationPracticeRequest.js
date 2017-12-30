@@ -33,8 +33,15 @@ $(document).ready(function () {
                 }),
 
             success: function () {
-                    alert("Request for practice in the company '" + $('#request_company_name').val() + "' created successfully");
-                    window.location.href = "/adminPage"
+                swal({
+                    title: "Success",
+                    text: "Request for practice in the company '" + $('#request_company_name').val() + "' created successfully",
+                    type: "success",
+                    confirmButtonText: "Ok",
+                    onClose: function() {
+                        window.location.href = "/adminPage"
+                    }
+                });
             }
 
 /*            success: function (data) {

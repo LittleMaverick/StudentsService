@@ -10,6 +10,7 @@
     <link href="../resources/css/libs/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="../resources/css/libs/bootstrap-table.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="../resources/css/main.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../resources/css/libs/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 
 </head>
 <body>
@@ -92,6 +93,7 @@
 <script src="../resources/js/libs/jquery-3.2.1.min.js"></script>
 <script src="../resources/js/libs/bootstrap.min.js"></script>
 <script src="../resources/js/libs/bootstrap-table.js"></script>
+<script src="../resources/js/libs/sweetalert2.min.js"></script>
 <script src="../resources/js/custom/practiceActions/deleteUpdateActions.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>

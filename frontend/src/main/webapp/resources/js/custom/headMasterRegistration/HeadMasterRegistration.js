@@ -23,8 +23,15 @@ $(document).ready(function () {
                     $("#name-error").html(data.username);
                 }
                 else{
-                    alert("Headmaster '" + $('#headMaster_username').val() + "' registered successfully");
-                    window.location.href = "/adminPage"
+                    swal({
+                        title: "Success",
+                        text: "Headmaster '" + $('#headMaster_username').val() + "' registered successfully",
+                        type: "success",
+                        confirmButtonText: "Ok",
+                        onClose: function() {
+                            window.location.href = "/adminPage"
+                        }
+                    });
                 }
             }
         });

@@ -40,12 +40,17 @@ $(document).ready(function () {
                     $("#email-name-error").html(data.email);
                 }
                 else{
-                    alert("Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully");
-                    window.location.href = "/adminPage"
+                    swal({
+                        title: "Success",
+                        text: "Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully",
+                        type: "success",
+                        confirmButtonText: "Ok",
+                        onClose: function() {
+                            window.location.href = "/adminPage"
+                        }
+                    });
                 }
-
             }
-
         });
     }
 

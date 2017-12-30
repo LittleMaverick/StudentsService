@@ -24,8 +24,15 @@ $(document).ready( function () {
                     $("#name-error").html(data.name);
                 }
                 else{
-                    alert("Speciality '" + $('#speciality_name').val() + "' create successfully");
-                    window.location.href = "/adminPage"
+                    swal({
+                        title: "Success",
+                        text: "Speciality '" + $('#speciality_name').val() + "' created successfully",
+                        type: "success",
+                        confirmButtonText: "Ok",
+                        onClose: function() {
+                            window.location.href = "/adminPage"
+                        }
+                    });
                 }
             }
         });

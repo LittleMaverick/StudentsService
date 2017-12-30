@@ -12,6 +12,7 @@
     <script src="../resources/js/custom/studentActions/registration/studentRegistration.js"></script>
     <script src="../resources/js/libs/jquery.validate.min.js"></script>
     <script src="../resources/js/custom/studentActions/validation/studentValidation.js"></script>
+    <link href="../resources/css/libs/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
 
@@ -91,7 +92,7 @@
 </div>
 
 <br/>
-
+<script src="../resources/js/libs/sweetalert2.min.js"></script>
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>
 </html>
