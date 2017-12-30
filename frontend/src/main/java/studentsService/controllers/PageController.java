@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import studentsservice.service.HeadOfPracticeService;
 import studentsservice.service.StudentService;
 import studentsservice.service.UserService;
 
@@ -25,6 +26,9 @@ public class PageController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private HeadOfPracticeService headOfPracticeService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error) {
@@ -81,7 +85,11 @@ public class PageController {
                     break;
                 }
                 case "ROLE_HEADMASTER": {
-                    defaultRedirectionURL = "redirect:/headMasterPage";
+                    String username = userDetails.getUsername();
+                    int headMasterId = headOfPracticeService.findByUserId(userService.findByUsername(username)
+                            .getId())
+                            .getId();
+                    defaultRedirectionURL = "redirect:/headMasterPage/" + headMasterId;
                     break;
                 }
             }
@@ -101,7 +109,7 @@ public class PageController {
         return "userPage";
     }
 
-    @RequestMapping(value = "/headMasterPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/headMasterPage/{id}", method = RequestMethod.GET)
     public String headMasterPage() { return "headMasterPage"; }
 
     @RequestMapping(value = "/studentRegistrationPage", method = RequestMethod.GET)
