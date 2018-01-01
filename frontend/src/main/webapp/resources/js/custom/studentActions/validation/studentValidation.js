@@ -1,14 +1,6 @@
 
 $(document).ready(function () {
 
-    $('#registrationStudentForm input').on('keyup', function () {
-        if ($('#registrationStudentForm').valid()) {
-            $('#student_reg_submit_btn').prop('disabled', false);
-        } else {
-            $('#student_reg_submit_btn').prop('disabled', 'disabled');
-        }
-    });
-
     $('#registrationStudentForm').validate({
         rules: {
             student_username: {
@@ -46,6 +38,12 @@ $(document).ready(function () {
                 minlength: 2,
                 maxlength: 10,
                 digits: true
+            },
+            student_faculty: {
+                required: true
+            },
+            student_speciality: {
+                required: true
             }
         },
 
@@ -85,7 +83,40 @@ $(document).ready(function () {
                 minlength: "<p class='validation-form'>Group must consist of at least 2 characters</p>",
                 maxlength: "<p class='validation-form'>Group needs to be less than 10 characters</p>",
                 digits: "<p class='validation-form'>Only numbers are allowed</p>"
+            },
+            student_faculty: {
+                required: "<p class='validation-form'>This field is required</p>"
+            },
+            student_speciality: {
+                required: "<p class='validation-form'>This field is required</p>"
             }
+        }
+    });
+
+
+    $('#student_faculty').on('change', function () {
+
+        if ($('#registrationStudentForm').valid()) {
+            $('#student_reg_submit_btn').prop('disabled', false);
+        } else {
+            $('#student_reg_submit_btn').prop('disabled', 'disabled');
+        }
+    });
+
+    $('#student_speciality').on('change', function () {
+        if ($('#registrationStudentForm').valid()) {
+            $('#student_reg_submit_btn').prop('disabled', false);
+        } else {
+            $('#student_reg_submit_btn').prop('disabled', 'disabled');
+        }
+    });
+
+
+    $('#registrationStudentForm input').on('keyup blur', function () {
+        if ($('#registrationStudentForm').valid()) {
+            $('#student_reg_submit_btn').prop('disabled', false);
+        } else {
+            $('#student_reg_submit_btn').prop('disabled', 'disabled');
         }
     });
 

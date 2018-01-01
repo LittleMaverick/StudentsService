@@ -85,8 +85,6 @@
 
     <div class="btn-toolbar">
         <button type="submit" class="btn btn-danger" id="delete_practice_btn" disabled="disabled">Delete practice(s)</button>
-
-        <button type="submit" class="btn btn-primary customBtn" id="edit_practice_btn" disabled="disabled">Edit practice</button>
     </div>
 </div>
 
@@ -94,7 +92,7 @@
 <script src="../resources/js/libs/bootstrap.min.js"></script>
 <script src="../resources/js/libs/bootstrap-table.js"></script>
 <script src="../resources/js/libs/sweetalert2.min.js"></script>
-<script src="../resources/js/custom/practiceActions/deleteUpdateActions.js"></script>
+<script src="../resources/js/custom/practiceActions/deleteAction.js"></script>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

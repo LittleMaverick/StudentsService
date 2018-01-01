@@ -35,6 +35,9 @@ public class DeletionService {
         for(AppointStudentEntity appointStudentEntity : appointStudentEntities){
             PracticeEntity practiceEntity = practiceService.findById(appointStudentEntity.getPracticeId());
             practiceEntity.setAvailableQuantity(practiceEntity.getAvailableQuantity() + 1);
+            if(practiceEntity.getStatus().equals("Filled")){
+                practiceEntity.setStatus("Available");
+            }
             practiceService.save(practiceEntity);
         }
 
@@ -44,7 +47,7 @@ public class DeletionService {
     @Transactional
     public void deletePractice(int id){
 
-        List<AppointStudentEntity> appointStudentEntities = appointStudentService.findByStudentId(id);
+        List<AppointStudentEntity> appointStudentEntities = appointStudentService.findByPracticeId(id);
 
         for(AppointStudentEntity appointStudentEntity : appointStudentEntities){
 

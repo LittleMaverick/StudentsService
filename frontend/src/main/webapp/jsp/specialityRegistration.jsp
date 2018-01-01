@@ -19,9 +19,7 @@
 
 </div>
 
-
 <div class="container">
-
     <div class="row">
         <form class="commonForm" id="specialityRegistrationForm">
 

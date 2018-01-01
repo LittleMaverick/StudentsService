@@ -39,9 +39,6 @@ public class PracticeController {
     private final TypeDescriptor ListOfPracticeEntityTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(PracticeEntity.class));
     private final TypeDescriptor ListOfPracticeViewModelTypeDescriptor = TypeDescriptor.collection(List.class, TypeDescriptor.valueOf(PracticeViewModel.class));
 
-    private final TypeDescriptor practiceEntityTypeDescriptor = TypeDescriptor.valueOf(PracticeEntity.class);
-    private final TypeDescriptor practiceViewModelTypeDescriptor = TypeDescriptor.valueOf(PracticeViewModel.class);
-
     @RequestMapping(value = "/practice", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> registerPractice(@RequestBody PracticeDTO practiceDTO) {

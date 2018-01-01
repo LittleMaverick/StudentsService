@@ -31,7 +31,6 @@ public class AppointService {
 
         PracticeEntity practiceEntity = practiceService.findById(practiceId);
 
-        // todo проверочка
         practiceEntity.setAvailableQuantity(practiceEntity.getAvailableQuantity() - studentIDs.size());
 
         if(practiceEntity.getAvailableQuantity() == 0){

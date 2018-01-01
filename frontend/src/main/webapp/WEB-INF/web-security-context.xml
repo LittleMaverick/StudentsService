@@ -14,14 +14,15 @@
 
         <remember-me remember-me-parameter="remember-me" token-validity-seconds="86400"/>
 
-<!--        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') "/>
+        <intercept-url pattern="/userPage/*" access="hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER') "/>
         <intercept-url pattern="/headMasterPage" access="hasRole('ROLE_HEADMASTER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/studentRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/headMasterRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/facultyRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/specialityRegistrationPage" access="hasRole('ROLE_ADMIN')"/>-->
-
+        <intercept-url pattern="/specialityRegistrationPage" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/createPracticeRequest" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/practices" access="hasRole('ROLE_ADMIN')"/>
 
         <intercept-url pattern="/login" access="isAnonymous()"/>
         <intercept-url pattern="/jsp/*" access="denyAll"/>

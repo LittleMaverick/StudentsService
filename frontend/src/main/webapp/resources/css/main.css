@@ -15,6 +15,10 @@ a, p, h1, h2, h3, figure, fieldset, ul, li, textarea{
     border: none;
 }
 
+.errorPage{
+   text-align: center;
+}
+
 .commonForm{
     max-width: 600px;
     min-width: 400px;

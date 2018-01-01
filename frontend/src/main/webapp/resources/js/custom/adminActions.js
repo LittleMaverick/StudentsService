@@ -30,6 +30,44 @@ $(document).ready(function () {
 
     function deleteStudent(){
 
+       /* for (var j in selectedRow){
+            if(selectedRow[j].status === "Busy") {
+                if (confirm("Selected student(s) has a practice. Are you Sure?")) {
+
+                    var studentIDs = [];
+
+                    for (var i in selectedRow) {
+                        studentIDs.push(selectedRow[i].id);
+                    }
+
+                    $.ajax({
+                        type: "DELETE",
+                        contentType: "application/json; charset=UTF-8",
+                        url: "/students",
+                        data: JSON.stringify(studentIDs),
+                        success: function () {
+
+                            swal({
+                                title: "Success",
+                                text: "Student(s) deleted successfully",
+                                type: "success",
+                                confirmButtonText: "Ok"
+                            });
+
+                            selectedRow = [];
+                            $('#adminTable').bootstrapTable('refresh');
+                            disableDeleteStudentBtn();
+                            disableAssignStudentBtn();
+                            disableReleaseStudentBtn();
+                        }
+                    });
+                }
+            }else{
+                return false;
+            }
+
+        }*/
+
         var studentIDs = [];
 
         for(var i in selectedRow){
@@ -131,6 +169,7 @@ $(document).ready(function () {
     }
 
     function getAvailablePractices() {
+
         $.ajax({
             url: '/AvailablePractice',
             type: 'GET',
@@ -141,12 +180,19 @@ $(document).ready(function () {
 
                 for(var i = 0; i < Object.keys(data).length; i++)
                 {
-                    $('#availablePractices').append($("<option></option>")
-                        .attr("value", data[i].id)
-                        .attr("faculty", data[i].faculty)
-                        .attr("speciality", data[i].speciality)
-                        .text(data[i].company + " - Available quantity: " +  data[i].availableQuantity + " (Faculty: " + data[i].faculty + "; Speciality: " + data[i].speciality + " )" ));
-                }
+                    if(data[i].availableQuantity < selectedRow.length){
+                        $('#confirmAssign').prop("disabled", "disabled");
+                    }else{
+                        $('#confirmAssign').prop("disabled", false);
+
+                        $('#availablePractices').append($("<option></option>")
+                            .attr("value", data[i].id)
+                            .attr("faculty", data[i].faculty)
+                            .attr("speciality", data[i].speciality)
+                            .text(data[i].company + " - Available quantity: " +  data[i].availableQuantity + " (Faculty: " + data[i].faculty + "; Speciality: " + data[i].speciality + " )" ));
+
+                    }
+               }
             }
         });
     }
@@ -168,7 +214,23 @@ $(document).ready(function () {
 
     function disableAssignStudentBtn() {
 
-        if(selectedRow.length !== 0){
+        var flag = true;
+
+        for (var i in selectedRow){
+            if(selectedRow[i].status === "Busy"){
+                flag = false;
+                break;
+            }
+            else {
+                flag = true;
+            }
+        }
+
+        if(selectedRow.length === 0){
+            flag = false;
+        }
+
+        if(flag){
             $('#assign_student_btn').prop("disabled", false);
 
         }else {
@@ -178,7 +240,23 @@ $(document).ready(function () {
 
     function disableReleaseStudentBtn() {
 
-        if(selectedRow.length !== 0){
+        var flag = true;
+
+        for (var i in selectedRow){
+            if(selectedRow[i].status === "Available"){
+                flag = false;
+                break;
+            }
+            else {
+                flag = true;
+            }
+        }
+
+        if(selectedRow.length === 0){
+            flag = false;
+        }
+
+        if(flag){
             $('#release_student_btn').prop("disabled", false);
 
         }else {
