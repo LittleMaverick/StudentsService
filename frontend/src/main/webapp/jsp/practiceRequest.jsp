@@ -63,7 +63,7 @@
 
             <div class="form-group">
                 <label class="control-label">Choose head of practice:</label>
-                <select id="request_headMaster" class="form-control">
+                <select id="request_headMaster" name="request_headMaster" class="form-control">
                 </select>
             </div>
 

@@ -29,6 +29,9 @@ $(document).ready(function () {
             },
             student_speciality: {
                 required: true
+            },
+            request_headMaster: {
+                required: true
             }
         },
 
@@ -54,6 +57,9 @@ $(document).ready(function () {
                 required: "<p class='validation-form'>This field is required</p>"
             },
             student_speciality: {
+                required: "<p class='validation-form'>This field is required</p>"
+            },
+            request_headMaster: {
                 required: "<p class='validation-form'>This field is required</p>"
             }
         }
