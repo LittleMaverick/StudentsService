@@ -52,12 +52,12 @@
     <div class="btn-toolbar ">
 
             <a href="/practices" class="btn btn-primary customBtn">Show all requests</a>
-            <a href="/createPracticeRequest" class="btn btn-primary customBtn"><span></span> Request for practice</a>
+            <a href="/practice-request" class="btn btn-primary customBtn"><span></span> Request for practice</a>
 
-            <a href="/facultyRegistrationPage" class="btn btn-primary customBtn"><span></span> Create faculty</a>
-            <a href="/specialityRegistrationPage" class="btn btn-primary customBtn"><span></span> Create speciality</a>
-            <a href="/studentRegistrationPage" class="btn btn-primary customBtn"><span></span> Register student</a>
-            <a href="/headMasterRegistrationPage" class="btn btn-primary customBtn"><span></span> Register head of practice</a>
+            <a href="/faculty-registration" class="btn btn-primary customBtn"><span></span> Create faculty</a>
+            <a href="/speciality-registration" class="btn btn-primary customBtn"><span></span> Create speciality</a>
+            <a href="/student-registration" class="btn btn-primary customBtn"><span></span> Register student</a>
+            <a href="/curator-registration" class="btn btn-primary customBtn"><span></span> Register head of practice</a>
 
     </div>
 </div>
@@ -114,7 +114,6 @@
 <script src="../resources/js/libs/sweetalert2.min.js"></script>
 <script src="../resources/js/custom/adminActions.js"></script>
 <script src="../resources/js/libs/jquery.validate.min.js"></script>
-<%--<script src="../resources/js/custom/assignStudentValidation.js"></script>--%>
 
 <jsp:include page="/jsp/blocks/footer.jsp"/>
 </body>

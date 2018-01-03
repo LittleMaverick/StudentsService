@@ -74,7 +74,7 @@ public class PageController {
                     break;
                 }
                 case "ROLE_ADMIN": {
-                    defaultRedirectionURL = "redirect:/adminPage";
+                    defaultRedirectionURL = "redirect:/admin";
                     break;
                 }
                 case "ROLE_HEADMASTER": {
@@ -92,7 +92,7 @@ public class PageController {
         }
     }
 
-    @RequestMapping(value = "/adminPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage() {
         return "adminPage";
     }
@@ -162,27 +162,27 @@ public class PageController {
 
     }
 
-    @RequestMapping(value = "/studentRegistrationPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/student-registration", method = RequestMethod.GET)
     public String studentRegistration() {
         return "studentRegistration";
     }
 
-    @RequestMapping(value = "/headMasterRegistrationPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/curator-registration", method = RequestMethod.GET)
     public String headMasterRegistration() {
         return "headMasterRegistration";
     }
 
-    @RequestMapping(value = "/facultyRegistrationPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/faculty-registration", method = RequestMethod.GET)
     public String FacultyRegistration() {
         return "facultyRegistration";
     }
 
-    @RequestMapping(value = "/specialityRegistrationPage", method = RequestMethod.GET)
+    @RequestMapping(value = "/speciality-registration", method = RequestMethod.GET)
     public String SpecialityRegistration() {
         return "specialityRegistration";
     }
 
-    @RequestMapping(value = "/createPracticeRequest", method = RequestMethod.GET)
+    @RequestMapping(value = "/practice-request", method = RequestMethod.GET)
     public String PracticeRequestCreation() {
         return "practiceRequest";
     }
@@ -191,5 +191,6 @@ public class PageController {
     public String PracticeRequestsPage() {
         return "allPracticeRequests";
     }
+
 
 }

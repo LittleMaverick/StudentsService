@@ -25,11 +25,11 @@ $(document).ready(function () {
                 else{
                     swal({
                         title: "Success",
-                        text: "Headmaster '" + $('#headMaster_username').val() + "' registered successfully",
+                        text: "Headmaster '" + $('#headMaster_name').val() + "' registered successfully",
                         type: "success",
                         confirmButtonText: "Ok",
                         onClose: function() {
-                            window.location.href = "/adminPage"
+                            window.location.href = "/admin"
                         }
                     });
                 }

@@ -39,7 +39,7 @@ $(document).ready(function () {
                     type: "success",
                     confirmButtonText: "Ok",
                     onClose: function() {
-                        window.location.href = "/adminPage"
+                        window.location.href = "/admin"
                     }
                 });
             }
