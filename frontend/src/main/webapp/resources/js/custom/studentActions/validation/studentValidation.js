@@ -95,34 +95,34 @@ $(document).ready(function () {
 
 
     $('#student_faculty').on('change', function () {
-
-        if ($('#registrationStudentForm').valid()) {
-            $('#student_reg_submit_btn').prop('disabled', false);
-        } else {
-            $('#student_reg_submit_btn').prop('disabled', 'disabled');
-        }
+        $('#student_reg_submit_btn').prop('disabled', 'disabled');
+        setTimeout(function () {
+            validateForm();
+        },500);
     });
 
     $('#student_speciality').on('change', function () {
-        if ($('#registrationStudentForm').valid()) {
-            $('#student_reg_submit_btn').prop('disabled', false);
-        } else {
-            $('#student_reg_submit_btn').prop('disabled', 'disabled');
-        }
+        setTimeout(function () {
+            validateForm();
+        },500);
     });
 
 
     $('#registrationStudentForm input').on('keyup blur', function () {
+      validateForm();
+    });
+
+    function validateForm() {
         if ($('#registrationStudentForm').valid()) {
             $('#student_reg_submit_btn').prop('disabled', false);
         } else {
             $('#student_reg_submit_btn').prop('disabled', 'disabled');
         }
-    });
+    }
 
     jQuery.validator.addMethod("emailValidator", function (value, element) {
         return this.optional(element) || /^[0-9a-zA-Z-.]+@[0-9a-zA-Z-]{2,}\.[a-z]{2,}$/.test(value);
     }, "<p class='validation-form'>Please, enter a valid e-mail address</p>" +
-        "<p class='validation-form'>testMail@gmail.com (for example)</p>");
+        "<p class='validation-form'>testmail@gmail.com (for example)</p>");
 
 });

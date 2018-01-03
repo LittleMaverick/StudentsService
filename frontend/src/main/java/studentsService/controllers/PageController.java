@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,9 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import studentsservice.service.HeadOfPracticeService;
 import studentsservice.service.StudentService;
 import studentsservice.service.UserService;
-
-
-import java.security.Principal;
 
 @Controller
 public class PageController {
@@ -43,19 +41,14 @@ public class PageController {
         return model;
     }
 
-
     @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
-    public ModelAndView accessDenied(Principal user) {
-        ModelAndView model = new ModelAndView();
+    public String accessDenied(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
 
-        if (user != null) {
-            model.addObject("errorMsg", user.getName() + ", у Вас нет прав доступа к этой странице.");
-        } else {
-            model.addObject("errorMsg", "У Вас нет прав доступа к этой странице.");
+            return "redirect:/home";
         }
-
-        model.setViewName("/accessDenied");
-        return model;
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -105,12 +98,69 @@ public class PageController {
     }
 
     @RequestMapping(value = "/userPage/{id}", method = RequestMethod.GET)
-    public String userPage() {
-        return "userPage";
+    public String userPage(@PathVariable("id") int id) {
+
+        String defaultRedirectionURL = "/userPage";
+        String defaultUserRole = "";
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            User userDetails = (User) authentication.getPrincipal();
+
+            for (GrantedAuthority authority : userDetails.getAuthorities()) {
+                defaultUserRole = authority.getAuthority();
+            }
+
+            String username = userDetails.getUsername();
+
+            if(defaultUserRole.equals("ROLE_STUDENT")) {
+                int studentId = studentService.findByUserId(userService.findByUsername(username)
+                        .getId())
+                        .getId();
+
+                if (studentId != id) {
+                    return "redirect:/accessDenied";
+                }
+            }
+
+            return defaultRedirectionURL;
+        } else {
+            return "redirect:/login";
+        }
     }
 
     @RequestMapping(value = "/headMasterPage/{id}", method = RequestMethod.GET)
-    public String headMasterPage() { return "headMasterPage"; }
+    public String headMasterPage(@PathVariable("id") int id) {
+
+        String defaultRedirectionURL = "/headMasterPage";
+        String defaultUserRole = "";
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            User userDetails = (User) authentication.getPrincipal();
+
+            for (GrantedAuthority authority : userDetails.getAuthorities()) {
+                defaultUserRole = authority.getAuthority();
+            }
+
+            String username = userDetails.getUsername();
+
+            if(defaultUserRole.equals("ROLE_HEADMASTER")) {
+                int headMasterId = headOfPracticeService.findByUserId(userService.findByUsername(username)
+                        .getId())
+                        .getId();
+
+                if (headMasterId != id) {
+                    return "redirect:/accessDenied";
+                }
+            }
+
+            return defaultRedirectionURL;
+        } else {
+            return "redirect:/login";
+        }
+
+    }
 
     @RequestMapping(value = "/studentRegistrationPage", method = RequestMethod.GET)
     public String studentRegistration() {

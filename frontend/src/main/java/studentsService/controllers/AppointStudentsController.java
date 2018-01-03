@@ -32,7 +32,7 @@ public class AppointStudentsController {
             studentsIDs.add(i);
         }
 
-        appointService.AppointStudent(Integer.parseInt(appointStudentsDTO.getPracticeId()), studentsIDs);
+        appointService.appointStudent(Integer.parseInt(appointStudentsDTO.getPracticeId()), studentsIDs);
     }
 
     @RequestMapping(value = "/releaseStudents", method = RequestMethod.DELETE)

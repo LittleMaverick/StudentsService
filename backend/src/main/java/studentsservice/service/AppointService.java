@@ -27,7 +27,7 @@ public class AppointService {
     private AppointStudentService appointStudentService;
 
     @Transactional
-    public void AppointStudent(int practiceId, List<Integer> studentIDs){
+    public void appointStudent(int practiceId, List<Integer> studentIDs){
 
         PracticeEntity practiceEntity = practiceService.findById(practiceId);
 

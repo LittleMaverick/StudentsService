@@ -2,14 +2,6 @@
 
 $(document).ready(function () {
 
-    $('#practiceRequestCreation input').on('keyup', function () {
-        if ($('#practiceRequestCreation').valid()) {
-            $('#request_submit_btn').prop('disabled', false);
-        } else {
-            $('#request_submit_btn').prop('disabled', 'disabled');
-        }
-    });
-
     $('#practiceRequestCreation').validate({
         rules: {
             company_name: {
@@ -24,11 +16,19 @@ $(document).ready(function () {
                 digits: true
             },
             request_start_date: {
-                required: true
+                required: true,
+                date: true
             },
             request_finish_date: {
+                date: true,
                 required: true,
                 greaterThan: "#request_start_date"
+            },
+            student_faculty: {
+                required: true
+            },
+            student_speciality: {
+                required: true
             }
         },
 
@@ -49,9 +49,42 @@ $(document).ready(function () {
             },
             request_finish_date: {
                 required: "<p class='validation-form'>This field is required</p>"
+            },
+            student_faculty: {
+                required: "<p class='validation-form'>This field is required</p>"
+            },
+            student_speciality: {
+                required: "<p class='validation-form'>This field is required</p>"
             }
         }
     });
+
+    $('#student_faculty').on('change', function () {
+        $('#request_submit_btn').prop('disabled', 'disabled');
+        setTimeout(function () {
+            validateForm();
+        },500);
+    });
+
+    $('#student_speciality').on('change', function () {
+        setTimeout(function () {
+            validateForm();
+        },500);
+    });
+
+
+    $('#practiceRequestCreation input').on('keyup', function () {
+        validateForm();
+    });
+
+    function validateForm() {
+
+            if ($('#practiceRequestCreation').valid()) {
+                $('#request_submit_btn').prop('disabled', false);
+            } else {
+                $('#request_submit_btn').prop('disabled', 'disabled');
+            }
+    }
 
     jQuery.validator.addMethod("greaterThan",
         function(value, element, params) {

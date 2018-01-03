@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
 
 
-    $('#adminTable').click(function () {
+    $('#adminTable').on ('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
         getSelectedRows();
         disableDeleteStudentBtn();
         disableAssignStudentBtn();
@@ -29,44 +29,6 @@ $(document).ready(function () {
 
 
     function deleteStudent(){
-
-       /* for (var j in selectedRow){
-            if(selectedRow[j].status === "Busy") {
-                if (confirm("Selected student(s) has a practice. Are you Sure?")) {
-
-                    var studentIDs = [];
-
-                    for (var i in selectedRow) {
-                        studentIDs.push(selectedRow[i].id);
-                    }
-
-                    $.ajax({
-                        type: "DELETE",
-                        contentType: "application/json; charset=UTF-8",
-                        url: "/students",
-                        data: JSON.stringify(studentIDs),
-                        success: function () {
-
-                            swal({
-                                title: "Success",
-                                text: "Student(s) deleted successfully",
-                                type: "success",
-                                confirmButtonText: "Ok"
-                            });
-
-                            selectedRow = [];
-                            $('#adminTable').bootstrapTable('refresh');
-                            disableDeleteStudentBtn();
-                            disableAssignStudentBtn();
-                            disableReleaseStudentBtn();
-                        }
-                    });
-                }
-            }else{
-                return false;
-            }
-
-        }*/
 
         var studentIDs = [];
 
@@ -170,8 +132,10 @@ $(document).ready(function () {
 
     function getAvailablePractices() {
 
+        var result = selectedRow.length;
+
         $.ajax({
-            url: '/AvailablePractice',
+            url: '/availablePractice',
             type: 'GET',
             contentType: "application/json; charset=UTF-8",
             data: '',
@@ -180,11 +144,9 @@ $(document).ready(function () {
 
                 for(var i = 0; i < Object.keys(data).length; i++)
                 {
-                    if(data[i].availableQuantity < selectedRow.length){
-                        $('#confirmAssign').prop("disabled", "disabled");
-                    }else{
-                        $('#confirmAssign').prop("disabled", false);
+                    if(data[i].availableQuantity < result ){
 
+                    }else{
                         $('#availablePractices').append($("<option></option>")
                             .attr("value", data[i].id)
                             .attr("faculty", data[i].faculty)

@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     <label >Login</label>
-                    <input type="text" class="form-control form-username" name="username" placeholder="Enter login" required minlength="3">
+                    <input type="text" class="form-control form-username" name="username" placeholder="Enter login" required minlength="2">
                 </div>
 
                 <div class="form-group">

@@ -42,7 +42,7 @@ $(document).ready(function () {
                 else{
                     swal({
                         title: "Success",
-                        text: "Student '" + $('#student_firstName').val() + " " + $('#student_firstName').val() + "' registered successfully",
+                        text: "Student '" + $('#student_firstName').val() + " " + $('#student_lastName').val() + "' registered successfully",
                         type: "success",
                         confirmButtonText: "Ok",
                         onClose: function() {

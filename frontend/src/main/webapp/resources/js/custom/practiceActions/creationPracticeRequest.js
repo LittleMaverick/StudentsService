@@ -44,17 +44,6 @@ $(document).ready(function () {
                 });
             }
 
-/*            success: function (data) {
-                if(data.company){
-                    $("#name-error").html(data.company);
-                }
-                else{
-                    alert("Request for practice in the company '" + $('#request_company_name').val() + "' created successfully");
-                    window.location.href = "/adminPage"
-                }
-
-            }*/
-
         });
     }
 
@@ -102,8 +91,3 @@ $(document).ready(function () {
     }
 
 });
-
-function removeError() {
-    $("#name-error").html("");
-    $("#email-name-error").html("");
-}

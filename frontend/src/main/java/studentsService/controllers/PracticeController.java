@@ -55,7 +55,7 @@ public class PracticeController {
         return null;
     }
 
-    @RequestMapping(value = "/AvailablePractice", method = RequestMethod.GET)
+    @RequestMapping(value = "/availablePractice", method = RequestMethod.GET)
     @ResponseBody
     public List<PracticeViewModel> getAvailablePractices() {
 
