@@ -29,6 +29,10 @@ public class ErrorController {
                 errorMsg = "404. Resource not found";
                 break;
             }
+            case 405: {
+                errorMsg = "405. Method Not Allowed";
+                break;
+            }
             case 500: {
                 errorMsg = "500. Internal Server Error";
                 break;

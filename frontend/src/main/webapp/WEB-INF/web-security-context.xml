@@ -24,6 +24,16 @@
         <intercept-url pattern="/practice-request" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/practices" access="hasRole('ROLE_ADMIN')"/>
 
+        <intercept-url pattern="/students" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/getFaculties" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/headMaster" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/availablePractice" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/allPractices" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/practices/headMaster/*" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')" />
+        <intercept-url pattern="/getSpecialities" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER')"/>
+        <intercept-url pattern="/users" access="hasRole('ROLE_ADMIN') "/>
+        <intercept-url pattern="/students/*" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_HEADMASTER') or hasRole('ROLE_STUDENT')"/>
+
         <intercept-url pattern="/login" access="isAnonymous()"/>
         <intercept-url pattern="/jsp/*" access="denyAll"/>
         <intercept-url pattern="/resources/**" access="permitAll"/>

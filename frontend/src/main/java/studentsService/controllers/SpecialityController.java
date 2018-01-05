@@ -79,11 +79,4 @@ public class SpecialityController {
         return null;
     }
 
-/*    @RequestMapping(value = "/specialities/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public SpecialityViewModel getFacultyById(@PathVariable int id) {
-        SpecialityEntity specialityEntity = specialityService.findById(id);
-        return (SpecialityViewModel) conversionService.convert(specialityEntity, specialityEntityTypeDescriptor, specialityViewModelTypeDescriptor);
-    }*/
-
 }

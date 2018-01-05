@@ -47,6 +47,7 @@
             <div class="form-group">
                 <label class="control-label">Choose faculty:</label>
                 <select id="student_faculty" name="student_faculty" class="form-control">
+
                 </select>
             </div>
 
